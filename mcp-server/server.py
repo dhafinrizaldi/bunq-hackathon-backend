@@ -1,4 +1,5 @@
 import logging
+import re
 from pathlib import Path
 from typing import Any
 
@@ -436,6 +437,179 @@ async def split_receipt_by_names(
         responses.append(resp)
 
     return "\n".join(responses)
+
+
+# Albert Heijn savings tool
+
+AH_BASE = "https://api.ah.nl"
+AH_SKIP_KEYWORDS = {
+    "totaal", "subtotaal", "btw", "kassabon", "datum", "filiaal", "nummer", "pinpas",
+    "betaald", "maestro", "statiegeld", "korting", "terminal", "periode", "transactie",
+    "merchant", "omschrijving", "bedrag", "contactloze",
+}
+
+
+def _parse_receipt_lines(receipt_text: str) -> list[dict]:
+    """Extract item name + price from receipt text using a trailing-price pattern."""
+    pattern = re.compile(r"^(?:\d+x\s+)?(.+?)\s+(\d+[.,]\d{2})\s*$", re.MULTILINE)
+    items = []
+    for match in pattern.finditer(receipt_text):
+        name = match.group(1).strip()
+        if any(kw in name.lower() for kw in AH_SKIP_KEYWORDS):
+            continue
+        try:
+            price = float(match.group(2).replace(",", "."))
+        except ValueError:
+            continue
+        # Build a 2-3 word search term, dropping size tokens like "1L", "500g"
+        words = [w for w in name.split() if not re.match(r"^\d", w) and not re.match(r"^\d*[a-z]+$", w, re.I)]
+        search_term = " ".join(words[:3]) or name.split()[0]
+        items.append({"name": name, "price_paid": price, "search_term": search_term})
+    return items
+
+
+async def _get_ah_token() -> str | None:
+    async with httpx.AsyncClient() as client:
+        try:
+            resp = await client.post(
+                f"{AH_BASE}/mobile-auth/v1/auth/token/anonymous",
+                json={"clientId": "appie"},
+                headers={"User-Agent": "Appie/8.22.3"},
+                timeout=10.0,
+            )
+            return resp.json().get("access_token") if not resp.is_error else None
+        except Exception:
+            return None
+
+
+async def _search_ah_products(query: str, token: str, size: int = 15) -> list:
+    headers = {
+        "Authorization": f"Bearer {token}",
+        "User-Agent": "Appie/8.22.3",
+        "x-application": "AHWEBSHOP",
+    }
+    async with httpx.AsyncClient() as client:
+        try:
+            resp = await client.get(
+                f"{AH_BASE}/mobile-services/product/search/v2",
+                params={"query": query, "sortOn": "RELEVANCE", "size": size, "page": 0},
+                headers=headers,
+                timeout=10.0,
+            )
+            return resp.json().get("products", []) if not resp.is_error else []
+        except Exception:
+            return []
+
+
+def _pick_ah_product(products: list) -> dict | None:
+    """Prefer a non-bundle with a known price; fall back to any priced product."""
+    for p in products:
+        if not p.get("isVirtualBundle") and p.get("currentPrice") is not None:
+            return p
+    for p in products:
+        if p.get("currentPrice") is not None:
+            return p
+    return None
+
+
+@mcp.tool()
+async def analyze_receipt_savings(receipt_text: str) -> str:
+    """Compare all items on a grocery receipt against live Albert Heijn prices to find savings.
+
+    Use this tool whenever the user shares a grocery receipt — as plain text, copy-pasted
+    from a photo, or extracted via OCR — and asks about savings, price comparisons, or
+    whether they could have spent less at another supermarket.
+
+    IMPORTANT — call this tool ONCE with the full receipt. Do NOT call it per item;
+    passing the complete receipt lets the tool batch all AH lookups efficiently.
+
+    IMPORTANT — Dutch supermarket receipts use abbreviated product codes that the AH
+    search engine won't understand. Before calling this tool, rewrite each item line so
+    the product name is a plain readable Dutch description. Keep the price unchanged.
+
+    Abbreviation examples:
+        "HELDER CRANB/LIMOEN  0,99"  →  "Cranberry limoen drank helder  0,99"
+        "JUMBO HELDER FR-BOSB  0,99" →  "Fruitige bosbes drank  0,99"
+        "RODE TOMATEN CHERRY  1,06"  →  "Rode cherry tomaten  1,06"
+        "DESEM BAG MEER 2ST  2,39"   →  "Desembrood bagel meerganen 2 stuks  2,39"
+        "GRILLWORST KAAS STUK  2,64" →  "Grillworst met kaas  2,64"
+        "HONIG TOMATENSOEP  1,62"    →  "Tomatensoep  1,62"
+        "LEFFE BLOND 6 PAK  7,91"    →  "Leffe Blond bier 6-pack  7,91"
+
+    Args:
+        receipt_text (str):
+            All item lines from the receipt with abbreviated product names already
+            expanded to plain Dutch. One item per line, price at the end of the line.
+            Omit header rows, totals, payment lines, and deposits (statiegeld).
+
+            Example:
+                Cranberry limoen drank helder  0,99
+                Fruitige bosbes drank  0,99
+                Rode cherry tomaten  1,06
+                Heks'nkaas roomkaas origineel XL  4,15
+                Desembrood bagel meergranen 2 stuks  2,39
+                Grillworst met kaas  2,64
+                Komkommer  0,73
+                Tomatensoep  1,62
+                Leffe Blond bier 6-pack  7,91
+                Brie  1,49
+
+    Returns:
+        str:
+            A formatted per-item breakdown showing what was paid at the original store
+            versus the current Albert Heijn price, whether an AH Bonus deal is active,
+            and the total potential saving across all items.
+
+            On success, each line follows the pattern:
+                • <item>: paid €X.XX | AH €Y.YY → save €Z.ZZ [bonus info if applicable]
+
+            Items with no AH match are listed as "AH: not found".
+
+    Notes:
+        - Prices are fetched live from the AH mobile API; results reflect today's stock.
+        - Active Bonus deals (e.g. "2e Halve Prijs", "10% korting") are highlighted with
+          their expiry date so the user knows if a deal is time-sensitive.
+        - Virtual bundle products (multi-packs) are automatically skipped in favour of
+          the equivalent single-unit product for a fair price comparison.
+        - The tool does not store any data; each call is fully stateless.
+    """
+    logger.info("Tool called: analyze_receipt_savings")
+
+    items = _parse_receipt_lines(receipt_text)
+    if not items:
+        return "Could not parse any items from the receipt — make sure item lines end with a price like '1.09'."
+
+    token = await _get_ah_token()
+    if not token:
+        return "Could not connect to Albert Heijn API to fetch prices."
+
+    rows = []
+    total_saving = 0.0
+
+    for item in items:
+        products = await _search_ah_products(item["search_term"], token)
+        ah = _pick_ah_product(products)
+
+        if ah is None:
+            rows.append(f"• {item['name']}: €{item['price_paid']:.2f} paid — AH: not found")
+            continue
+
+        ah_price = ah.get("currentPrice")
+        saving = max(0.0, item["price_paid"] - ah_price) if ah_price is not None else 0.0
+        total_saving += saving
+
+        bonus_tag = ""
+        if ah.get("isBonus"):
+            bonus_tag = f" [{ah.get('bonusMechanism')} until {ah.get('bonusEndDate')}]"
+
+        saving_tag = f" → save €{saving:.2f}" if saving > 0 else ""
+        ah_label = f"AH €{ah_price:.2f}" if ah_price is not None else "AH: price unavailable"
+        rows.append(f"• {item['name']}: paid €{item['price_paid']:.2f} | {ah_label}{saving_tag}{bonus_tag}")
+
+    lines = ["Albert Heijn Price Comparison", "=" * 42]
+    lines += rows
+    lines += ["=" * 42, f"Total potential saving: €{total_saving:.2f}"]
+    return "\n".join(lines)
 
 
 def main():
