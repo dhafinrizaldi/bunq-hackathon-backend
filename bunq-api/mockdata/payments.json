@@ -1,0 +1,3252 @@
+[
+  {
+    "_id_": 31000001,
+    "_created": "2026-04-04 17:23:11.000000",
+    "_updated": "2026-04-04 17:23:11.000000",
+    "_monetary_account_id": 3603251,
+    "_amount": { "_currency": "EUR", "_value": "-54.32" },
+    "_payment_fee": null,
+    "_description": "AH betaling",
+    "_type_": "MASTERCARD",
+    "_merchant_reference": "AH-20260404",
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL43BUNQ2106069499",
+        "_is_light": false,
+        "_display_name": "A. Hegger",
+        "_avatar": {
+          "_uuid": "ba565fdf-0482-4a45-99f3-7a4e3815ecd3",
+          "_image": [
+            {
+              "_attachment_public_uuid": "ad5e4a70-116b-4b0d-b6f3-bcb4856abbe5",
+              "_height": 1023,
+              "_width": 1024,
+              "_content_type": "image/png"
+            }
+          ],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+          "_display_name": "A. Hegger",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "9debf55b-70b1-4d43-8d51-d6e7bd42fb5b",
+            "_image": [
+              {
+                "_attachment_public_uuid": "4b7e0d1d-9167-48ac-990a-70e342c87812",
+                "_height": 126,
+                "_width": 200,
+                "_content_type": "image/jpeg"
+              }
+            ],
+            "_anchor_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Alex"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5411"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "A. Hegger",
+        "_type_": "IBAN",
+        "_value": "NL43BUNQ2106069499"
+      }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL18INGB0004567890",
+        "_is_light": false,
+        "_display_name": "Albert Heijn",
+        "_avatar": {
+          "_uuid": "ah-avatar-uuid",
+          "_image": [],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "ah-user-uuid",
+          "_display_name": "Albert Heijn",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "ah-avatar-uuid",
+            "_image": [],
+            "_anchor_uuid": "ah-user-uuid",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Albert Heijn"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5411"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "Albert Heijn",
+        "_type_": "IBAN",
+        "_value": "NL18INGB0004567890"
+      }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "1245.68" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null,
+    "_allow_bunqto": null,
+    "_bunqto_status": null,
+    "_bunqto_sub_status": null,
+    "_bunqto_share_url": null,
+    "_bunqto_expiry": null,
+    "_bunqto_time_responded": null
+  },
+  {
+    "_id_": 31000002,
+    "_created": "2026-04-01 09:00:00.000000",
+    "_updated": "2026-04-01 09:00:00.000000",
+    "_monetary_account_id": 3603251,
+    "_amount": { "_currency": "EUR", "_value": "-34.99" },
+    "_payment_fee": null,
+    "_description": "Basic-Fit membership April",
+    "_type_": "IDEAL",
+    "_merchant_reference": "BASICFIT-APR2026",
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL43BUNQ2106069499",
+        "_is_light": false,
+        "_display_name": "A. Hegger",
+        "_avatar": {
+          "_uuid": "ba565fdf-0482-4a45-99f3-7a4e3815ecd3",
+          "_image": [
+            {
+              "_attachment_public_uuid": "ad5e4a70-116b-4b0d-b6f3-bcb4856abbe5",
+              "_height": 1023,
+              "_width": 1024,
+              "_content_type": "image/png"
+            }
+          ],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+          "_display_name": "A. Hegger",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "9debf55b-70b1-4d43-8d51-d6e7bd42fb5b",
+            "_image": [
+              {
+                "_attachment_public_uuid": "4b7e0d1d-9167-48ac-990a-70e342c87812",
+                "_height": 126,
+                "_width": 200,
+                "_content_type": "image/jpeg"
+              }
+            ],
+            "_anchor_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Alex"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "7941"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "A. Hegger",
+        "_type_": "IBAN",
+        "_value": "NL43BUNQ2106069499"
+      }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL91ABNA0417164300",
+        "_is_light": false,
+        "_display_name": "Basic-Fit",
+        "_avatar": {
+          "_uuid": "basicfit-avatar-uuid",
+          "_image": [],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "basicfit-user-uuid",
+          "_display_name": "Basic-Fit",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "basicfit-avatar-uuid",
+            "_image": [],
+            "_anchor_uuid": "basicfit-user-uuid",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Basic-Fit"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "7941"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "Basic-Fit",
+        "_type_": "IBAN",
+        "_value": "NL91ABNA0417164300"
+      }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "1300.00" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null,
+    "_allow_bunqto": null,
+    "_bunqto_status": null,
+    "_bunqto_sub_status": null,
+    "_bunqto_share_url": null,
+    "_bunqto_expiry": null,
+    "_bunqto_time_responded": null
+  },
+  {
+    "_id_": 31000003,
+    "_created": "2026-03-29 15:44:22.000000",
+    "_updated": "2026-03-29 15:44:22.000000",
+    "_monetary_account_id": 3603251,
+    "_amount": { "_currency": "EUR", "_value": "-67.88" },
+    "_payment_fee": null,
+    "_description": "Jumbo supermarkt",
+    "_type_": "MASTERCARD",
+    "_merchant_reference": "JUMBO-20260329",
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL43BUNQ2106069499",
+        "_is_light": false,
+        "_display_name": "A. Hegger",
+        "_avatar": {
+          "_uuid": "ba565fdf-0482-4a45-99f3-7a4e3815ecd3",
+          "_image": [
+            {
+              "_attachment_public_uuid": "ad5e4a70-116b-4b0d-b6f3-bcb4856abbe5",
+              "_height": 1023,
+              "_width": 1024,
+              "_content_type": "image/png"
+            }
+          ],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+          "_display_name": "A. Hegger",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "9debf55b-70b1-4d43-8d51-d6e7bd42fb5b",
+            "_image": [
+              {
+                "_attachment_public_uuid": "4b7e0d1d-9167-48ac-990a-70e342c87812",
+                "_height": 126,
+                "_width": 200,
+                "_content_type": "image/jpeg"
+              }
+            ],
+            "_anchor_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Alex"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5411"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "A. Hegger",
+        "_type_": "IBAN",
+        "_value": "NL43BUNQ2106069499"
+      }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL69RABO0300065264",
+        "_is_light": false,
+        "_display_name": "Jumbo Supermarkten",
+        "_avatar": {
+          "_uuid": "jumbo-avatar-uuid",
+          "_image": [],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "jumbo-user-uuid",
+          "_display_name": "Jumbo Supermarkten",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "jumbo-avatar-uuid",
+            "_image": [],
+            "_anchor_uuid": "jumbo-user-uuid",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Jumbo"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5411"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "Jumbo Supermarkten",
+        "_type_": "IBAN",
+        "_value": "NL69RABO0300065264"
+      }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "1354.32" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null,
+    "_allow_bunqto": null,
+    "_bunqto_status": null,
+    "_bunqto_sub_status": null,
+    "_bunqto_share_url": null,
+    "_bunqto_expiry": null,
+    "_bunqto_time_responded": null
+  },
+  {
+    "_id_": 31000004,
+    "_created": "2026-03-26 11:05:00.000000",
+    "_updated": "2026-03-26 11:05:00.000000",
+    "_monetary_account_id": 3603251,
+    "_amount": { "_currency": "EUR", "_value": "-89.95" },
+    "_payment_fee": null,
+    "_description": "ZARA Amsterdam",
+    "_type_": "MASTERCARD",
+    "_merchant_reference": "ZARA-20260326",
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL43BUNQ2106069499",
+        "_is_light": false,
+        "_display_name": "A. Hegger",
+        "_avatar": {
+          "_uuid": "ba565fdf-0482-4a45-99f3-7a4e3815ecd3",
+          "_image": [
+            {
+              "_attachment_public_uuid": "ad5e4a70-116b-4b0d-b6f3-bcb4856abbe5",
+              "_height": 1023,
+              "_width": 1024,
+              "_content_type": "image/png"
+            }
+          ],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+          "_display_name": "A. Hegger",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "9debf55b-70b1-4d43-8d51-d6e7bd42fb5b",
+            "_image": [
+              {
+                "_attachment_public_uuid": "4b7e0d1d-9167-48ac-990a-70e342c87812",
+                "_height": 126,
+                "_width": 200,
+                "_content_type": "image/jpeg"
+              }
+            ],
+            "_anchor_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Alex"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5621"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "A. Hegger",
+        "_type_": "IBAN",
+        "_value": "NL43BUNQ2106069499"
+      }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL55ABNA0123456789",
+        "_is_light": false,
+        "_display_name": "Zara",
+        "_avatar": {
+          "_uuid": "zara-avatar-uuid",
+          "_image": [],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "zara-user-uuid",
+          "_display_name": "Zara",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "zara-avatar-uuid",
+            "_image": [],
+            "_anchor_uuid": "zara-user-uuid",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Zara"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5621"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "Zara",
+        "_type_": "IBAN",
+        "_value": "NL55ABNA0123456789"
+      }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "1422.20" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null,
+    "_allow_bunqto": null,
+    "_bunqto_status": null,
+    "_bunqto_sub_status": null,
+    "_bunqto_share_url": null,
+    "_bunqto_expiry": null,
+    "_bunqto_time_responded": null
+  },
+  {
+    "_id_": 31000005,
+    "_created": "2026-03-22 18:30:00.000000",
+    "_updated": "2026-03-22 18:30:00.000000",
+    "_monetary_account_id": 3603251,
+    "_amount": { "_currency": "EUR", "_value": "-48.15" },
+    "_payment_fee": null,
+    "_description": "AH betaling",
+    "_type_": "MASTERCARD",
+    "_merchant_reference": "AH-20260322",
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL43BUNQ2106069499",
+        "_is_light": false,
+        "_display_name": "A. Hegger",
+        "_avatar": {
+          "_uuid": "ba565fdf-0482-4a45-99f3-7a4e3815ecd3",
+          "_image": [
+            {
+              "_attachment_public_uuid": "ad5e4a70-116b-4b0d-b6f3-bcb4856abbe5",
+              "_height": 1023,
+              "_width": 1024,
+              "_content_type": "image/png"
+            }
+          ],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+          "_display_name": "A. Hegger",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "9debf55b-70b1-4d43-8d51-d6e7bd42fb5b",
+            "_image": [
+              {
+                "_attachment_public_uuid": "4b7e0d1d-9167-48ac-990a-70e342c87812",
+                "_height": 126,
+                "_width": 200,
+                "_content_type": "image/jpeg"
+              }
+            ],
+            "_anchor_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Alex"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5411"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "A. Hegger",
+        "_type_": "IBAN",
+        "_value": "NL43BUNQ2106069499"
+      }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL18INGB0004567890",
+        "_is_light": false,
+        "_display_name": "Albert Heijn",
+        "_avatar": {
+          "_uuid": "ah-avatar-uuid",
+          "_image": [],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "ah-user-uuid",
+          "_display_name": "Albert Heijn",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "ah-avatar-uuid",
+            "_image": [],
+            "_anchor_uuid": "ah-user-uuid",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Albert Heijn"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5411"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "Albert Heijn",
+        "_type_": "IBAN",
+        "_value": "NL18INGB0004567890"
+      }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "1512.15" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null,
+    "_allow_bunqto": null,
+    "_bunqto_status": null,
+    "_bunqto_sub_status": null,
+    "_bunqto_share_url": null,
+    "_bunqto_expiry": null,
+    "_bunqto_time_responded": null
+  },
+  {
+    "_id_": 31000006,
+    "_created": "2026-03-15 13:12:00.000000",
+    "_updated": "2026-03-15 13:12:00.000000",
+    "_monetary_account_id": 3603251,
+    "_amount": { "_currency": "EUR", "_value": "-59.40" },
+    "_payment_fee": null,
+    "_description": "Jumbo supermarkt",
+    "_type_": "MASTERCARD",
+    "_merchant_reference": "JUMBO-20260315",
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL43BUNQ2106069499",
+        "_is_light": false,
+        "_display_name": "A. Hegger",
+        "_avatar": {
+          "_uuid": "ba565fdf-0482-4a45-99f3-7a4e3815ecd3",
+          "_image": [
+            {
+              "_attachment_public_uuid": "ad5e4a70-116b-4b0d-b6f3-bcb4856abbe5",
+              "_height": 1023,
+              "_width": 1024,
+              "_content_type": "image/png"
+            }
+          ],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+          "_display_name": "A. Hegger",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "9debf55b-70b1-4d43-8d51-d6e7bd42fb5b",
+            "_image": [
+              {
+                "_attachment_public_uuid": "4b7e0d1d-9167-48ac-990a-70e342c87812",
+                "_height": 126,
+                "_width": 200,
+                "_content_type": "image/jpeg"
+              }
+            ],
+            "_anchor_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Alex"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5411"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "A. Hegger",
+        "_type_": "IBAN",
+        "_value": "NL43BUNQ2106069499"
+      }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL69RABO0300065264",
+        "_is_light": false,
+        "_display_name": "Jumbo Supermarkten",
+        "_avatar": {
+          "_uuid": "jumbo-avatar-uuid",
+          "_image": [],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "jumbo-user-uuid",
+          "_display_name": "Jumbo Supermarkten",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "jumbo-avatar-uuid",
+            "_image": [],
+            "_anchor_uuid": "jumbo-user-uuid",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Jumbo"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5411"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "Jumbo Supermarkten",
+        "_type_": "IBAN",
+        "_value": "NL69RABO0300065264"
+      }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "1560.30" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null,
+    "_allow_bunqto": null,
+    "_bunqto_status": null,
+    "_bunqto_sub_status": null,
+    "_bunqto_share_url": null,
+    "_bunqto_expiry": null,
+    "_bunqto_time_responded": null
+  },
+  {
+    "_id_": 31000007,
+    "_created": "2026-03-01 09:00:00.000000",
+    "_updated": "2026-03-01 09:00:00.000000",
+    "_monetary_account_id": 3603251,
+    "_amount": { "_currency": "EUR", "_value": "-34.99" },
+    "_payment_fee": null,
+    "_description": "Basic-Fit membership March",
+    "_type_": "IDEAL",
+    "_merchant_reference": "BASICFIT-MAR2026",
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL43BUNQ2106069499",
+        "_is_light": false,
+        "_display_name": "A. Hegger",
+        "_avatar": {
+          "_uuid": "ba565fdf-0482-4a45-99f3-7a4e3815ecd3",
+          "_image": [
+            {
+              "_attachment_public_uuid": "ad5e4a70-116b-4b0d-b6f3-bcb4856abbe5",
+              "_height": 1023,
+              "_width": 1024,
+              "_content_type": "image/png"
+            }
+          ],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+          "_display_name": "A. Hegger",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "9debf55b-70b1-4d43-8d51-d6e7bd42fb5b",
+            "_image": [
+              {
+                "_attachment_public_uuid": "4b7e0d1d-9167-48ac-990a-70e342c87812",
+                "_height": 126,
+                "_width": 200,
+                "_content_type": "image/jpeg"
+              }
+            ],
+            "_anchor_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Alex"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "7941"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "A. Hegger",
+        "_type_": "IBAN",
+        "_value": "NL43BUNQ2106069499"
+      }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL91ABNA0417164300",
+        "_is_light": false,
+        "_display_name": "Basic-Fit",
+        "_avatar": {
+          "_uuid": "basicfit-avatar-uuid",
+          "_image": [],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "basicfit-user-uuid",
+          "_display_name": "Basic-Fit",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "basicfit-avatar-uuid",
+            "_image": [],
+            "_anchor_uuid": "basicfit-user-uuid",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Basic-Fit"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "7941"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "Basic-Fit",
+        "_type_": "IBAN",
+        "_value": "NL91ABNA0417164300"
+      }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "1619.70" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null,
+    "_allow_bunqto": null,
+    "_bunqto_status": null,
+    "_bunqto_sub_status": null,
+    "_bunqto_share_url": null,
+    "_bunqto_expiry": null,
+    "_bunqto_time_responded": null
+  },
+  {
+    "_id_": 31000008,
+    "_created": "2026-02-27 16:55:00.000000",
+    "_updated": "2026-02-27 16:55:00.000000",
+    "_monetary_account_id": 3603251,
+    "_amount": { "_currency": "EUR", "_value": "-43.20" },
+    "_payment_fee": null,
+    "_description": "AH betaling",
+    "_type_": "MASTERCARD",
+    "_merchant_reference": "AH-20260227",
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL43BUNQ2106069499",
+        "_is_light": false,
+        "_display_name": "A. Hegger",
+        "_avatar": {
+          "_uuid": "ba565fdf-0482-4a45-99f3-7a4e3815ecd3",
+          "_image": [
+            {
+              "_attachment_public_uuid": "ad5e4a70-116b-4b0d-b6f3-bcb4856abbe5",
+              "_height": 1023,
+              "_width": 1024,
+              "_content_type": "image/png"
+            }
+          ],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+          "_display_name": "A. Hegger",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "9debf55b-70b1-4d43-8d51-d6e7bd42fb5b",
+            "_image": [
+              {
+                "_attachment_public_uuid": "4b7e0d1d-9167-48ac-990a-70e342c87812",
+                "_height": 126,
+                "_width": 200,
+                "_content_type": "image/jpeg"
+              }
+            ],
+            "_anchor_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Alex"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5411"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "A. Hegger",
+        "_type_": "IBAN",
+        "_value": "NL43BUNQ2106069499"
+      }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL18INGB0004567890",
+        "_is_light": false,
+        "_display_name": "Albert Heijn",
+        "_avatar": {
+          "_uuid": "ah-avatar-uuid",
+          "_image": [],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "ah-user-uuid",
+          "_display_name": "Albert Heijn",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "ah-avatar-uuid",
+            "_image": [],
+            "_anchor_uuid": "ah-user-uuid",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Albert Heijn"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5411"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "Albert Heijn",
+        "_type_": "IBAN",
+        "_value": "NL18INGB0004567890"
+      }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "1654.69" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null,
+    "_allow_bunqto": null,
+    "_bunqto_status": null,
+    "_bunqto_sub_status": null,
+    "_bunqto_share_url": null,
+    "_bunqto_expiry": null,
+    "_bunqto_time_responded": null
+  },
+  {
+    "_id_": 31000009,
+    "_created": "2026-02-21 14:20:00.000000",
+    "_updated": "2026-02-21 14:20:00.000000",
+    "_monetary_account_id": 3603251,
+    "_amount": { "_currency": "EUR", "_value": "-129.00" },
+    "_payment_fee": null,
+    "_description": "H&M Online NL",
+    "_type_": "MASTERCARD",
+    "_merchant_reference": "HM-20260221",
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL43BUNQ2106069499",
+        "_is_light": false,
+        "_display_name": "A. Hegger",
+        "_avatar": {
+          "_uuid": "ba565fdf-0482-4a45-99f3-7a4e3815ecd3",
+          "_image": [
+            {
+              "_attachment_public_uuid": "ad5e4a70-116b-4b0d-b6f3-bcb4856abbe5",
+              "_height": 1023,
+              "_width": 1024,
+              "_content_type": "image/png"
+            }
+          ],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+          "_display_name": "A. Hegger",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "9debf55b-70b1-4d43-8d51-d6e7bd42fb5b",
+            "_image": [
+              {
+                "_attachment_public_uuid": "4b7e0d1d-9167-48ac-990a-70e342c87812",
+                "_height": 126,
+                "_width": 200,
+                "_content_type": "image/jpeg"
+              }
+            ],
+            "_anchor_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Alex"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5621"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "A. Hegger",
+        "_type_": "IBAN",
+        "_value": "NL43BUNQ2106069499"
+      }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL02ABNA0123123123",
+        "_is_light": false,
+        "_display_name": "H&M",
+        "_avatar": {
+          "_uuid": "hm-avatar-uuid",
+          "_image": [],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "hm-user-uuid",
+          "_display_name": "H&M",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "hm-avatar-uuid",
+            "_image": [],
+            "_anchor_uuid": "hm-user-uuid",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "H&M"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5621"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "H&M",
+        "_type_": "IBAN",
+        "_value": "NL02ABNA0123123123"
+      }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "1697.89" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null,
+    "_allow_bunqto": null,
+    "_bunqto_status": null,
+    "_bunqto_sub_status": null,
+    "_bunqto_share_url": null,
+    "_bunqto_expiry": null,
+    "_bunqto_time_responded": null
+  },
+  {
+    "_id_": 31000010,
+    "_created": "2026-02-14 12:00:00.000000",
+    "_updated": "2026-02-14 12:00:00.000000",
+    "_monetary_account_id": 3603251,
+    "_amount": { "_currency": "EUR", "_value": "-72.60" },
+    "_payment_fee": null,
+    "_description": "Jumbo supermarkt",
+    "_type_": "MASTERCARD",
+    "_merchant_reference": "JUMBO-20260214",
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL43BUNQ2106069499",
+        "_is_light": false,
+        "_display_name": "A. Hegger",
+        "_avatar": {
+          "_uuid": "ba565fdf-0482-4a45-99f3-7a4e3815ecd3",
+          "_image": [
+            {
+              "_attachment_public_uuid": "ad5e4a70-116b-4b0d-b6f3-bcb4856abbe5",
+              "_height": 1023,
+              "_width": 1024,
+              "_content_type": "image/png"
+            }
+          ],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+          "_display_name": "A. Hegger",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "9debf55b-70b1-4d43-8d51-d6e7bd42fb5b",
+            "_image": [
+              {
+                "_attachment_public_uuid": "4b7e0d1d-9167-48ac-990a-70e342c87812",
+                "_height": 126,
+                "_width": 200,
+                "_content_type": "image/jpeg"
+              }
+            ],
+            "_anchor_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Alex"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5411"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "A. Hegger",
+        "_type_": "IBAN",
+        "_value": "NL43BUNQ2106069499"
+      }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL69RABO0300065264",
+        "_is_light": false,
+        "_display_name": "Jumbo Supermarkten",
+        "_avatar": {
+          "_uuid": "jumbo-avatar-uuid",
+          "_image": [],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "jumbo-user-uuid",
+          "_display_name": "Jumbo Supermarkten",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "jumbo-avatar-uuid",
+            "_image": [],
+            "_anchor_uuid": "jumbo-user-uuid",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Jumbo"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5411"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "Jumbo Supermarkten",
+        "_type_": "IBAN",
+        "_value": "NL69RABO0300065264"
+      }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "1826.89" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null,
+    "_allow_bunqto": null,
+    "_bunqto_status": null,
+    "_bunqto_sub_status": null,
+    "_bunqto_share_url": null,
+    "_bunqto_expiry": null,
+    "_bunqto_time_responded": null
+  },
+  {
+    "_id_": 31000011,
+    "_created": "2026-02-01 09:00:00.000000",
+    "_updated": "2026-02-01 09:00:00.000000",
+    "_monetary_account_id": 3603251,
+    "_amount": { "_currency": "EUR", "_value": "-34.99" },
+    "_payment_fee": null,
+    "_description": "Basic-Fit membership February",
+    "_type_": "IDEAL",
+    "_merchant_reference": "BASICFIT-FEB2026",
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL43BUNQ2106069499",
+        "_is_light": false,
+        "_display_name": "A. Hegger",
+        "_avatar": {
+          "_uuid": "ba565fdf-0482-4a45-99f3-7a4e3815ecd3",
+          "_image": [
+            {
+              "_attachment_public_uuid": "ad5e4a70-116b-4b0d-b6f3-bcb4856abbe5",
+              "_height": 1023,
+              "_width": 1024,
+              "_content_type": "image/png"
+            }
+          ],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+          "_display_name": "A. Hegger",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "9debf55b-70b1-4d43-8d51-d6e7bd42fb5b",
+            "_image": [
+              {
+                "_attachment_public_uuid": "4b7e0d1d-9167-48ac-990a-70e342c87812",
+                "_height": 126,
+                "_width": 200,
+                "_content_type": "image/jpeg"
+              }
+            ],
+            "_anchor_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Alex"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "7941"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "A. Hegger",
+        "_type_": "IBAN",
+        "_value": "NL43BUNQ2106069499"
+      }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL91ABNA0417164300",
+        "_is_light": false,
+        "_display_name": "Basic-Fit",
+        "_avatar": {
+          "_uuid": "basicfit-avatar-uuid",
+          "_image": [],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "basicfit-user-uuid",
+          "_display_name": "Basic-Fit",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "basicfit-avatar-uuid",
+            "_image": [],
+            "_anchor_uuid": "basicfit-user-uuid",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Basic-Fit"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "7941"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "Basic-Fit",
+        "_type_": "IBAN",
+        "_value": "NL91ABNA0417164300"
+      }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "1899.49" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null,
+    "_allow_bunqto": null,
+    "_bunqto_status": null,
+    "_bunqto_sub_status": null,
+    "_bunqto_share_url": null,
+    "_bunqto_expiry": null,
+    "_bunqto_time_responded": null
+  },
+  {
+    "_id_": 31000012,
+    "_created": "2026-01-28 19:10:00.000000",
+    "_updated": "2026-01-28 19:10:00.000000",
+    "_monetary_account_id": 3603251,
+    "_amount": { "_currency": "EUR", "_value": "-61.45" },
+    "_payment_fee": null,
+    "_description": "AH betaling",
+    "_type_": "MASTERCARD",
+    "_merchant_reference": "AH-20260128",
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL43BUNQ2106069499",
+        "_is_light": false,
+        "_display_name": "A. Hegger",
+        "_avatar": {
+          "_uuid": "ba565fdf-0482-4a45-99f3-7a4e3815ecd3",
+          "_image": [
+            {
+              "_attachment_public_uuid": "ad5e4a70-116b-4b0d-b6f3-bcb4856abbe5",
+              "_height": 1023,
+              "_width": 1024,
+              "_content_type": "image/png"
+            }
+          ],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+          "_display_name": "A. Hegger",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "9debf55b-70b1-4d43-8d51-d6e7bd42fb5b",
+            "_image": [
+              {
+                "_attachment_public_uuid": "4b7e0d1d-9167-48ac-990a-70e342c87812",
+                "_height": 126,
+                "_width": 200,
+                "_content_type": "image/jpeg"
+              }
+            ],
+            "_anchor_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Alex"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5411"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "A. Hegger",
+        "_type_": "IBAN",
+        "_value": "NL43BUNQ2106069499"
+      }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL18INGB0004567890",
+        "_is_light": false,
+        "_display_name": "Albert Heijn",
+        "_avatar": {
+          "_uuid": "ah-avatar-uuid",
+          "_image": [],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "ah-user-uuid",
+          "_display_name": "Albert Heijn",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "ah-avatar-uuid",
+            "_image": [],
+            "_anchor_uuid": "ah-user-uuid",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Albert Heijn"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5411"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "Albert Heijn",
+        "_type_": "IBAN",
+        "_value": "NL18INGB0004567890"
+      }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "1934.48" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null,
+    "_allow_bunqto": null,
+    "_bunqto_status": null,
+    "_bunqto_sub_status": null,
+    "_bunqto_share_url": null,
+    "_bunqto_expiry": null,
+    "_bunqto_time_responded": null
+  },
+  {
+    "_id_": 31000013,
+    "_created": "2026-01-18 15:35:00.000000",
+    "_updated": "2026-01-18 15:35:00.000000",
+    "_monetary_account_id": 3603251,
+    "_amount": { "_currency": "EUR", "_value": "-214.90" },
+    "_payment_fee": null,
+    "_description": "Nike.com order NL",
+    "_type_": "MASTERCARD",
+    "_merchant_reference": "NIKE-20260118",
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL43BUNQ2106069499",
+        "_is_light": false,
+        "_display_name": "A. Hegger",
+        "_avatar": {
+          "_uuid": "ba565fdf-0482-4a45-99f3-7a4e3815ecd3",
+          "_image": [
+            {
+              "_attachment_public_uuid": "ad5e4a70-116b-4b0d-b6f3-bcb4856abbe5",
+              "_height": 1023,
+              "_width": 1024,
+              "_content_type": "image/png"
+            }
+          ],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+          "_display_name": "A. Hegger",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "9debf55b-70b1-4d43-8d51-d6e7bd42fb5b",
+            "_image": [
+              {
+                "_attachment_public_uuid": "4b7e0d1d-9167-48ac-990a-70e342c87812",
+                "_height": 126,
+                "_width": 200,
+                "_content_type": "image/jpeg"
+              }
+            ],
+            "_anchor_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Alex"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5941"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "A. Hegger",
+        "_type_": "IBAN",
+        "_value": "NL43BUNQ2106069499"
+      }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL77INGB0653445822",
+        "_is_light": false,
+        "_display_name": "Nike",
+        "_avatar": {
+          "_uuid": "nike-avatar-uuid",
+          "_image": [],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "nike-user-uuid",
+          "_display_name": "Nike",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "nike-avatar-uuid",
+            "_image": [],
+            "_anchor_uuid": "nike-user-uuid",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Nike"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5941"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "Nike",
+        "_type_": "IBAN",
+        "_value": "NL77INGB0653445822"
+      }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "1995.93" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null,
+    "_allow_bunqto": null,
+    "_bunqto_status": null,
+    "_bunqto_sub_status": null,
+    "_bunqto_share_url": null,
+    "_bunqto_expiry": null,
+    "_bunqto_time_responded": null
+  },
+  {
+    "_id_": 31000014,
+    "_created": "2026-01-10 10:20:00.000000",
+    "_updated": "2026-01-10 10:20:00.000000",
+    "_monetary_account_id": 3603251,
+    "_amount": { "_currency": "EUR", "_value": "-55.75" },
+    "_payment_fee": null,
+    "_description": "Jumbo supermarkt",
+    "_type_": "MASTERCARD",
+    "_merchant_reference": "JUMBO-20260110",
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL43BUNQ2106069499",
+        "_is_light": false,
+        "_display_name": "A. Hegger",
+        "_avatar": {
+          "_uuid": "ba565fdf-0482-4a45-99f3-7a4e3815ecd3",
+          "_image": [
+            {
+              "_attachment_public_uuid": "ad5e4a70-116b-4b0d-b6f3-bcb4856abbe5",
+              "_height": 1023,
+              "_width": 1024,
+              "_content_type": "image/png"
+            }
+          ],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+          "_display_name": "A. Hegger",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "9debf55b-70b1-4d43-8d51-d6e7bd42fb5b",
+            "_image": [
+              {
+                "_attachment_public_uuid": "4b7e0d1d-9167-48ac-990a-70e342c87812",
+                "_height": 126,
+                "_width": 200,
+                "_content_type": "image/jpeg"
+              }
+            ],
+            "_anchor_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Alex"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5411"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "A. Hegger",
+        "_type_": "IBAN",
+        "_value": "NL43BUNQ2106069499"
+      }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL69RABO0300065264",
+        "_is_light": false,
+        "_display_name": "Jumbo Supermarkten",
+        "_avatar": {
+          "_uuid": "jumbo-avatar-uuid",
+          "_image": [],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "jumbo-user-uuid",
+          "_display_name": "Jumbo Supermarkten",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "jumbo-avatar-uuid",
+            "_image": [],
+            "_anchor_uuid": "jumbo-user-uuid",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Jumbo"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5411"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "Jumbo Supermarkten",
+        "_type_": "IBAN",
+        "_value": "NL69RABO0300065264"
+      }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "2210.83" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null,
+    "_allow_bunqto": null,
+    "_bunqto_status": null,
+    "_bunqto_sub_status": null,
+    "_bunqto_share_url": null,
+    "_bunqto_expiry": null,
+    "_bunqto_time_responded": null
+  },
+  {
+    "_id_": 31000015,
+    "_created": "2026-01-01 09:00:00.000000",
+    "_updated": "2026-01-01 09:00:00.000000",
+    "_monetary_account_id": 3603251,
+    "_amount": { "_currency": "EUR", "_value": "-34.99" },
+    "_payment_fee": null,
+    "_description": "Basic-Fit membership January",
+    "_type_": "IDEAL",
+    "_merchant_reference": "BASICFIT-JAN2026",
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL43BUNQ2106069499",
+        "_is_light": false,
+        "_display_name": "A. Hegger",
+        "_avatar": {
+          "_uuid": "ba565fdf-0482-4a45-99f3-7a4e3815ecd3",
+          "_image": [
+            {
+              "_attachment_public_uuid": "ad5e4a70-116b-4b0d-b6f3-bcb4856abbe5",
+              "_height": 1023,
+              "_width": 1024,
+              "_content_type": "image/png"
+            }
+          ],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+          "_display_name": "A. Hegger",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "9debf55b-70b1-4d43-8d51-d6e7bd42fb5b",
+            "_image": [
+              {
+                "_attachment_public_uuid": "4b7e0d1d-9167-48ac-990a-70e342c87812",
+                "_height": 126,
+                "_width": 200,
+                "_content_type": "image/jpeg"
+              }
+            ],
+            "_anchor_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Alex"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "7941"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "A. Hegger",
+        "_type_": "IBAN",
+        "_value": "NL43BUNQ2106069499"
+      }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL91ABNA0417164300",
+        "_is_light": false,
+        "_display_name": "Basic-Fit",
+        "_avatar": {
+          "_uuid": "basicfit-avatar-uuid",
+          "_image": [],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "basicfit-user-uuid",
+          "_display_name": "Basic-Fit",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "basicfit-avatar-uuid",
+            "_image": [],
+            "_anchor_uuid": "basicfit-user-uuid",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Basic-Fit"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "7941"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "Basic-Fit",
+        "_type_": "IBAN",
+        "_value": "NL91ABNA0417164300"
+      }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "2266.58" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null,
+    "_allow_bunqto": null,
+    "_bunqto_status": null,
+    "_bunqto_sub_status": null,
+    "_bunqto_share_url": null,
+    "_bunqto_expiry": null,
+    "_bunqto_time_responded": null
+  },
+  {
+    "_id_": 31000016,
+    "_created": "2025-12-28 14:00:00.000000",
+    "_updated": "2025-12-28 14:00:00.000000",
+    "_monetary_account_id": 3603251,
+    "_amount": { "_currency": "EUR", "_value": "-38.90" },
+    "_payment_fee": null,
+    "_description": "AH betaling",
+    "_type_": "MASTERCARD",
+    "_merchant_reference": "AH-20251228",
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL43BUNQ2106069499",
+        "_is_light": false,
+        "_display_name": "A. Hegger",
+        "_avatar": {
+          "_uuid": "ba565fdf-0482-4a45-99f3-7a4e3815ecd3",
+          "_image": [
+            {
+              "_attachment_public_uuid": "ad5e4a70-116b-4b0d-b6f3-bcb4856abbe5",
+              "_height": 1023,
+              "_width": 1024,
+              "_content_type": "image/png"
+            }
+          ],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+          "_display_name": "A. Hegger",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "9debf55b-70b1-4d43-8d51-d6e7bd42fb5b",
+            "_image": [
+              {
+                "_attachment_public_uuid": "4b7e0d1d-9167-48ac-990a-70e342c87812",
+                "_height": 126,
+                "_width": 200,
+                "_content_type": "image/jpeg"
+              }
+            ],
+            "_anchor_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Alex"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5411"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "A. Hegger",
+        "_type_": "IBAN",
+        "_value": "NL43BUNQ2106069499"
+      }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL18INGB0004567890",
+        "_is_light": false,
+        "_display_name": "Albert Heijn",
+        "_avatar": {
+          "_uuid": "ah-avatar-uuid",
+          "_image": [],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "ah-user-uuid",
+          "_display_name": "Albert Heijn",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "ah-avatar-uuid",
+            "_image": [],
+            "_anchor_uuid": "ah-user-uuid",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Albert Heijn"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5411"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "Albert Heijn",
+        "_type_": "IBAN",
+        "_value": "NL18INGB0004567890"
+      }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "2301.57" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null,
+    "_allow_bunqto": null,
+    "_bunqto_status": null,
+    "_bunqto_sub_status": null,
+    "_bunqto_share_url": null,
+    "_bunqto_expiry": null,
+    "_bunqto_time_responded": null
+  },
+  {
+    "_id_": 31000017,
+    "_created": "2025-12-20 11:30:00.000000",
+    "_updated": "2025-12-20 11:30:00.000000",
+    "_monetary_account_id": 3603251,
+    "_amount": { "_currency": "EUR", "_value": "-349.00" },
+    "_payment_fee": null,
+    "_description": "Zalando order #NL8823001",
+    "_type_": "MASTERCARD",
+    "_merchant_reference": "ZALANDO-20251220",
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL43BUNQ2106069499",
+        "_is_light": false,
+        "_display_name": "A. Hegger",
+        "_avatar": {
+          "_uuid": "ba565fdf-0482-4a45-99f3-7a4e3815ecd3",
+          "_image": [
+            {
+              "_attachment_public_uuid": "ad5e4a70-116b-4b0d-b6f3-bcb4856abbe5",
+              "_height": 1023,
+              "_width": 1024,
+              "_content_type": "image/png"
+            }
+          ],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+          "_display_name": "A. Hegger",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "9debf55b-70b1-4d43-8d51-d6e7bd42fb5b",
+            "_image": [
+              {
+                "_attachment_public_uuid": "4b7e0d1d-9167-48ac-990a-70e342c87812",
+                "_height": 126,
+                "_width": 200,
+                "_content_type": "image/jpeg"
+              }
+            ],
+            "_anchor_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Alex"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5621"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "A. Hegger",
+        "_type_": "IBAN",
+        "_value": "NL43BUNQ2106069499"
+      }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL24DEUT0319198282",
+        "_is_light": false,
+        "_display_name": "Zalando",
+        "_avatar": {
+          "_uuid": "zalando-avatar-uuid",
+          "_image": [],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "zalando-user-uuid",
+          "_display_name": "Zalando",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "zalando-avatar-uuid",
+            "_image": [],
+            "_anchor_uuid": "zalando-user-uuid",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Zalando"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5621"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "Zalando",
+        "_type_": "IBAN",
+        "_value": "NL24DEUT0319198282"
+      }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "2340.47" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null,
+    "_allow_bunqto": null,
+    "_bunqto_status": null,
+    "_bunqto_sub_status": null,
+    "_bunqto_share_url": null,
+    "_bunqto_expiry": null,
+    "_bunqto_time_responded": null
+  },
+  {
+    "_id_": 31000018,
+    "_created": "2025-12-12 17:45:00.000000",
+    "_updated": "2025-12-12 17:45:00.000000",
+    "_monetary_account_id": 3603251,
+    "_amount": { "_currency": "EUR", "_value": "-63.20" },
+    "_payment_fee": null,
+    "_description": "Jumbo supermarkt",
+    "_type_": "MASTERCARD",
+    "_merchant_reference": "JUMBO-20251212",
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL43BUNQ2106069499",
+        "_is_light": false,
+        "_display_name": "A. Hegger",
+        "_avatar": {
+          "_uuid": "ba565fdf-0482-4a45-99f3-7a4e3815ecd3",
+          "_image": [
+            {
+              "_attachment_public_uuid": "ad5e4a70-116b-4b0d-b6f3-bcb4856abbe5",
+              "_height": 1023,
+              "_width": 1024,
+              "_content_type": "image/png"
+            }
+          ],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+          "_display_name": "A. Hegger",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "9debf55b-70b1-4d43-8d51-d6e7bd42fb5b",
+            "_image": [
+              {
+                "_attachment_public_uuid": "4b7e0d1d-9167-48ac-990a-70e342c87812",
+                "_height": 126,
+                "_width": 200,
+                "_content_type": "image/jpeg"
+              }
+            ],
+            "_anchor_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Alex"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5411"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "A. Hegger",
+        "_type_": "IBAN",
+        "_value": "NL43BUNQ2106069499"
+      }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL69RABO0300065264",
+        "_is_light": false,
+        "_display_name": "Jumbo Supermarkten",
+        "_avatar": {
+          "_uuid": "jumbo-avatar-uuid",
+          "_image": [],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "jumbo-user-uuid",
+          "_display_name": "Jumbo Supermarkten",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "jumbo-avatar-uuid",
+            "_image": [],
+            "_anchor_uuid": "jumbo-user-uuid",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Jumbo"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5411"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "Jumbo Supermarkten",
+        "_type_": "IBAN",
+        "_value": "NL69RABO0300065264"
+      }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "2689.47" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null,
+    "_allow_bunqto": null,
+    "_bunqto_status": null,
+    "_bunqto_sub_status": null,
+    "_bunqto_share_url": null,
+    "_bunqto_expiry": null,
+    "_bunqto_time_responded": null
+  },
+  {
+    "_id_": 31000019,
+    "_created": "2025-12-01 09:00:00.000000",
+    "_updated": "2025-12-01 09:00:00.000000",
+    "_monetary_account_id": 3603251,
+    "_amount": { "_currency": "EUR", "_value": "-34.99" },
+    "_payment_fee": null,
+    "_description": "Basic-Fit membership December",
+    "_type_": "IDEAL",
+    "_merchant_reference": "BASICFIT-DEC2025",
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL43BUNQ2106069499",
+        "_is_light": false,
+        "_display_name": "A. Hegger",
+        "_avatar": {
+          "_uuid": "ba565fdf-0482-4a45-99f3-7a4e3815ecd3",
+          "_image": [
+            {
+              "_attachment_public_uuid": "ad5e4a70-116b-4b0d-b6f3-bcb4856abbe5",
+              "_height": 1023,
+              "_width": 1024,
+              "_content_type": "image/png"
+            }
+          ],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+          "_display_name": "A. Hegger",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "9debf55b-70b1-4d43-8d51-d6e7bd42fb5b",
+            "_image": [
+              {
+                "_attachment_public_uuid": "4b7e0d1d-9167-48ac-990a-70e342c87812",
+                "_height": 126,
+                "_width": 200,
+                "_content_type": "image/jpeg"
+              }
+            ],
+            "_anchor_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Alex"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "7941"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "A. Hegger",
+        "_type_": "IBAN",
+        "_value": "NL43BUNQ2106069499"
+      }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL91ABNA0417164300",
+        "_is_light": false,
+        "_display_name": "Basic-Fit",
+        "_avatar": {
+          "_uuid": "basicfit-avatar-uuid",
+          "_image": [],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "basicfit-user-uuid",
+          "_display_name": "Basic-Fit",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "basicfit-avatar-uuid",
+            "_image": [],
+            "_anchor_uuid": "basicfit-user-uuid",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Basic-Fit"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "7941"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "Basic-Fit",
+        "_type_": "IBAN",
+        "_value": "NL91ABNA0417164300"
+      }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "2752.67" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null,
+    "_allow_bunqto": null,
+    "_bunqto_status": null,
+    "_bunqto_sub_status": null,
+    "_bunqto_share_url": null,
+    "_bunqto_expiry": null,
+    "_bunqto_time_responded": null
+  },
+  {
+    "_id_": 31000020,
+    "_created": "2025-11-29 16:00:00.000000",
+    "_updated": "2025-11-29 16:00:00.000000",
+    "_monetary_account_id": 3603251,
+    "_amount": { "_currency": "EUR", "_value": "-47.60" },
+    "_payment_fee": null,
+    "_description": "AH betaling",
+    "_type_": "MASTERCARD",
+    "_merchant_reference": "AH-20251129",
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL43BUNQ2106069499",
+        "_is_light": false,
+        "_display_name": "A. Hegger",
+        "_avatar": {
+          "_uuid": "ba565fdf-0482-4a45-99f3-7a4e3815ecd3",
+          "_image": [
+            {
+              "_attachment_public_uuid": "ad5e4a70-116b-4b0d-b6f3-bcb4856abbe5",
+              "_height": 1023,
+              "_width": 1024,
+              "_content_type": "image/png"
+            }
+          ],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+          "_display_name": "A. Hegger",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "9debf55b-70b1-4d43-8d51-d6e7bd42fb5b",
+            "_image": [
+              {
+                "_attachment_public_uuid": "4b7e0d1d-9167-48ac-990a-70e342c87812",
+                "_height": 126,
+                "_width": 200,
+                "_content_type": "image/jpeg"
+              }
+            ],
+            "_anchor_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Alex"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5411"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "A. Hegger",
+        "_type_": "IBAN",
+        "_value": "NL43BUNQ2106069499"
+      }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL18INGB0004567890",
+        "_is_light": false,
+        "_display_name": "Albert Heijn",
+        "_avatar": {
+          "_uuid": "ah-avatar-uuid",
+          "_image": [],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "ah-user-uuid",
+          "_display_name": "Albert Heijn",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "ah-avatar-uuid",
+            "_image": [],
+            "_anchor_uuid": "ah-user-uuid",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Albert Heijn"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5411"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "Albert Heijn",
+        "_type_": "IBAN",
+        "_value": "NL18INGB0004567890"
+      }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "2787.66" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null,
+    "_allow_bunqto": null,
+    "_bunqto_status": null,
+    "_bunqto_sub_status": null,
+    "_bunqto_share_url": null,
+    "_bunqto_expiry": null,
+    "_bunqto_time_responded": null
+  },
+  {
+    "_id_": 31000021,
+    "_created": "2025-11-24 10:15:00.000000",
+    "_updated": "2025-11-24 10:15:00.000000",
+    "_monetary_account_id": 3603251,
+    "_amount": { "_currency": "EUR", "_value": "-189.95" },
+    "_payment_fee": null,
+    "_description": "Zalando order #NL7712345",
+    "_type_": "MASTERCARD",
+    "_merchant_reference": "ZALANDO-20251124",
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL43BUNQ2106069499",
+        "_is_light": false,
+        "_display_name": "A. Hegger",
+        "_avatar": {
+          "_uuid": "ba565fdf-0482-4a45-99f3-7a4e3815ecd3",
+          "_image": [
+            {
+              "_attachment_public_uuid": "ad5e4a70-116b-4b0d-b6f3-bcb4856abbe5",
+              "_height": 1023,
+              "_width": 1024,
+              "_content_type": "image/png"
+            }
+          ],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+          "_display_name": "A. Hegger",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "9debf55b-70b1-4d43-8d51-d6e7bd42fb5b",
+            "_image": [
+              {
+                "_attachment_public_uuid": "4b7e0d1d-9167-48ac-990a-70e342c87812",
+                "_height": 126,
+                "_width": 200,
+                "_content_type": "image/jpeg"
+              }
+            ],
+            "_anchor_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Alex"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5621"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "A. Hegger",
+        "_type_": "IBAN",
+        "_value": "NL43BUNQ2106069499"
+      }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL24DEUT0319198282",
+        "_is_light": false,
+        "_display_name": "Zalando",
+        "_avatar": {
+          "_uuid": "zalando-avatar-uuid",
+          "_image": [],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "zalando-user-uuid",
+          "_display_name": "Zalando",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "zalando-avatar-uuid",
+            "_image": [],
+            "_anchor_uuid": "zalando-user-uuid",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Zalando"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5621"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "Zalando",
+        "_type_": "IBAN",
+        "_value": "NL24DEUT0319198282"
+      }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "2835.26" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null,
+    "_allow_bunqto": null,
+    "_bunqto_status": null,
+    "_bunqto_sub_status": null,
+    "_bunqto_share_url": null,
+    "_bunqto_expiry": null,
+    "_bunqto_time_responded": null
+  },
+  {
+    "_id_": 31000022,
+    "_created": "2025-11-15 13:00:00.000000",
+    "_updated": "2025-11-15 13:00:00.000000",
+    "_monetary_account_id": 3603251,
+    "_amount": { "_currency": "EUR", "_value": "-58.30" },
+    "_payment_fee": null,
+    "_description": "Jumbo supermarkt",
+    "_type_": "MASTERCARD",
+    "_merchant_reference": "JUMBO-20251115",
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL43BUNQ2106069499",
+        "_is_light": false,
+        "_display_name": "A. Hegger",
+        "_avatar": {
+          "_uuid": "ba565fdf-0482-4a45-99f3-7a4e3815ecd3",
+          "_image": [
+            {
+              "_attachment_public_uuid": "ad5e4a70-116b-4b0d-b6f3-bcb4856abbe5",
+              "_height": 1023,
+              "_width": 1024,
+              "_content_type": "image/png"
+            }
+          ],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+          "_display_name": "A. Hegger",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "9debf55b-70b1-4d43-8d51-d6e7bd42fb5b",
+            "_image": [
+              {
+                "_attachment_public_uuid": "4b7e0d1d-9167-48ac-990a-70e342c87812",
+                "_height": 126,
+                "_width": 200,
+                "_content_type": "image/jpeg"
+              }
+            ],
+            "_anchor_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Alex"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5411"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "A. Hegger",
+        "_type_": "IBAN",
+        "_value": "NL43BUNQ2106069499"
+      }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL69RABO0300065264",
+        "_is_light": false,
+        "_display_name": "Jumbo Supermarkten",
+        "_avatar": {
+          "_uuid": "jumbo-avatar-uuid",
+          "_image": [],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "jumbo-user-uuid",
+          "_display_name": "Jumbo Supermarkten",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "jumbo-avatar-uuid",
+            "_image": [],
+            "_anchor_uuid": "jumbo-user-uuid",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Jumbo"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5411"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "Jumbo Supermarkten",
+        "_type_": "IBAN",
+        "_value": "NL69RABO0300065264"
+      }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "3025.21" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null,
+    "_allow_bunqto": null,
+    "_bunqto_status": null,
+    "_bunqto_sub_status": null,
+    "_bunqto_share_url": null,
+    "_bunqto_expiry": null,
+    "_bunqto_time_responded": null
+  },
+  {
+    "_id_": 31000023,
+    "_created": "2025-11-01 09:00:00.000000",
+    "_updated": "2025-11-01 09:00:00.000000",
+    "_monetary_account_id": 3603251,
+    "_amount": { "_currency": "EUR", "_value": "-34.99" },
+    "_payment_fee": null,
+    "_description": "Basic-Fit membership November",
+    "_type_": "IDEAL",
+    "_merchant_reference": "BASICFIT-NOV2025",
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL43BUNQ2106069499",
+        "_is_light": false,
+        "_display_name": "A. Hegger",
+        "_avatar": {
+          "_uuid": "ba565fdf-0482-4a45-99f3-7a4e3815ecd3",
+          "_image": [
+            {
+              "_attachment_public_uuid": "ad5e4a70-116b-4b0d-b6f3-bcb4856abbe5",
+              "_height": 1023,
+              "_width": 1024,
+              "_content_type": "image/png"
+            }
+          ],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+          "_display_name": "A. Hegger",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "9debf55b-70b1-4d43-8d51-d6e7bd42fb5b",
+            "_image": [
+              {
+                "_attachment_public_uuid": "4b7e0d1d-9167-48ac-990a-70e342c87812",
+                "_height": 126,
+                "_width": 200,
+                "_content_type": "image/jpeg"
+              }
+            ],
+            "_anchor_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Alex"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "7941"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "A. Hegger",
+        "_type_": "IBAN",
+        "_value": "NL43BUNQ2106069499"
+      }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL91ABNA0417164300",
+        "_is_light": false,
+        "_display_name": "Basic-Fit",
+        "_avatar": {
+          "_uuid": "basicfit-avatar-uuid",
+          "_image": [],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "basicfit-user-uuid",
+          "_display_name": "Basic-Fit",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "basicfit-avatar-uuid",
+            "_image": [],
+            "_anchor_uuid": "basicfit-user-uuid",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Basic-Fit"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "7941"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "Basic-Fit",
+        "_type_": "IBAN",
+        "_value": "NL91ABNA0417164300"
+      }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "3083.51" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null,
+    "_allow_bunqto": null,
+    "_bunqto_status": null,
+    "_bunqto_sub_status": null,
+    "_bunqto_share_url": null,
+    "_bunqto_expiry": null,
+    "_bunqto_time_responded": null
+  },
+  {
+    "_id_": 31000024,
+    "_created": "2025-10-25 18:20:00.000000",
+    "_updated": "2025-10-25 18:20:00.000000",
+    "_monetary_account_id": 3603251,
+    "_amount": { "_currency": "EUR", "_value": "-52.75" },
+    "_payment_fee": null,
+    "_description": "AH betaling",
+    "_type_": "MASTERCARD",
+    "_merchant_reference": "AH-20251025",
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL43BUNQ2106069499",
+        "_is_light": false,
+        "_display_name": "A. Hegger",
+        "_avatar": {
+          "_uuid": "ba565fdf-0482-4a45-99f3-7a4e3815ecd3",
+          "_image": [
+            {
+              "_attachment_public_uuid": "ad5e4a70-116b-4b0d-b6f3-bcb4856abbe5",
+              "_height": 1023,
+              "_width": 1024,
+              "_content_type": "image/png"
+            }
+          ],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+          "_display_name": "A. Hegger",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "9debf55b-70b1-4d43-8d51-d6e7bd42fb5b",
+            "_image": [
+              {
+                "_attachment_public_uuid": "4b7e0d1d-9167-48ac-990a-70e342c87812",
+                "_height": 126,
+                "_width": 200,
+                "_content_type": "image/jpeg"
+              }
+            ],
+            "_anchor_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Alex"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5411"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "A. Hegger",
+        "_type_": "IBAN",
+        "_value": "NL43BUNQ2106069499"
+      }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL18INGB0004567890",
+        "_is_light": false,
+        "_display_name": "Albert Heijn",
+        "_avatar": {
+          "_uuid": "ah-avatar-uuid",
+          "_image": [],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "ah-user-uuid",
+          "_display_name": "Albert Heijn",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "ah-avatar-uuid",
+            "_image": [],
+            "_anchor_uuid": "ah-user-uuid",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Albert Heijn"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5411"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "Albert Heijn",
+        "_type_": "IBAN",
+        "_value": "NL18INGB0004567890"
+      }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "3118.50" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null,
+    "_allow_bunqto": null,
+    "_bunqto_status": null,
+    "_bunqto_sub_status": null,
+    "_bunqto_share_url": null,
+    "_bunqto_expiry": null,
+    "_bunqto_time_responded": null
+  },
+  {
+    "_id_": 31000025,
+    "_created": "2025-10-12 11:00:00.000000",
+    "_updated": "2025-10-12 11:00:00.000000",
+    "_monetary_account_id": 3603251,
+    "_amount": { "_currency": "EUR", "_value": "-74.50" },
+    "_payment_fee": null,
+    "_description": "Jumbo supermarkt",
+    "_type_": "MASTERCARD",
+    "_merchant_reference": "JUMBO-20251012",
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL43BUNQ2106069499",
+        "_is_light": false,
+        "_display_name": "A. Hegger",
+        "_avatar": {
+          "_uuid": "ba565fdf-0482-4a45-99f3-7a4e3815ecd3",
+          "_image": [
+            {
+              "_attachment_public_uuid": "ad5e4a70-116b-4b0d-b6f3-bcb4856abbe5",
+              "_height": 1023,
+              "_width": 1024,
+              "_content_type": "image/png"
+            }
+          ],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+          "_display_name": "A. Hegger",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "9debf55b-70b1-4d43-8d51-d6e7bd42fb5b",
+            "_image": [
+              {
+                "_attachment_public_uuid": "4b7e0d1d-9167-48ac-990a-70e342c87812",
+                "_height": 126,
+                "_width": 200,
+                "_content_type": "image/jpeg"
+              }
+            ],
+            "_anchor_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Alex"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5411"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "A. Hegger",
+        "_type_": "IBAN",
+        "_value": "NL43BUNQ2106069499"
+      }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL69RABO0300065264",
+        "_is_light": false,
+        "_display_name": "Jumbo Supermarkten",
+        "_avatar": {
+          "_uuid": "jumbo-avatar-uuid",
+          "_image": [],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "jumbo-user-uuid",
+          "_display_name": "Jumbo Supermarkten",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "jumbo-avatar-uuid",
+            "_image": [],
+            "_anchor_uuid": "jumbo-user-uuid",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Jumbo"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "5411"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "Jumbo Supermarkten",
+        "_type_": "IBAN",
+        "_value": "NL69RABO0300065264"
+      }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "3171.25" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null,
+    "_allow_bunqto": null,
+    "_bunqto_status": null,
+    "_bunqto_sub_status": null,
+    "_bunqto_share_url": null,
+    "_bunqto_expiry": null,
+    "_bunqto_time_responded": null
+  },
+  {
+    "_id_": 31000026,
+    "_created": "2025-10-01 09:00:00.000000",
+    "_updated": "2025-10-01 09:00:00.000000",
+    "_monetary_account_id": 3603251,
+    "_amount": { "_currency": "EUR", "_value": "-34.99" },
+    "_payment_fee": null,
+    "_description": "Basic-Fit membership October",
+    "_type_": "IDEAL",
+    "_merchant_reference": "BASICFIT-OCT2025",
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL43BUNQ2106069499",
+        "_is_light": false,
+        "_display_name": "A. Hegger",
+        "_avatar": {
+          "_uuid": "ba565fdf-0482-4a45-99f3-7a4e3815ecd3",
+          "_image": [
+            {
+              "_attachment_public_uuid": "ad5e4a70-116b-4b0d-b6f3-bcb4856abbe5",
+              "_height": 1023,
+              "_width": 1024,
+              "_content_type": "image/png"
+            }
+          ],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+          "_display_name": "A. Hegger",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "9debf55b-70b1-4d43-8d51-d6e7bd42fb5b",
+            "_image": [
+              {
+                "_attachment_public_uuid": "4b7e0d1d-9167-48ac-990a-70e342c87812",
+                "_height": 126,
+                "_width": 200,
+                "_content_type": "image/jpeg"
+              }
+            ],
+            "_anchor_uuid": "320d6595-5555-43a7-9392-4e74d7d116d0",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Alex"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "7941"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "A. Hegger",
+        "_type_": "IBAN",
+        "_value": "NL43BUNQ2106069499"
+      }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL91ABNA0417164300",
+        "_is_light": false,
+        "_display_name": "Basic-Fit",
+        "_avatar": {
+          "_uuid": "basicfit-avatar-uuid",
+          "_image": [],
+          "_anchor_uuid": null,
+          "_style": "NONE"
+        },
+        "_label_user": {
+          "_uuid": "basicfit-user-uuid",
+          "_display_name": "Basic-Fit",
+          "_country": "NL",
+          "_avatar": {
+            "_uuid": "basicfit-avatar-uuid",
+            "_image": [],
+            "_anchor_uuid": "basicfit-user-uuid",
+            "_style": "NONE"
+          },
+          "_public_nick_name": "Basic-Fit"
+        },
+        "_country": "NL",
+        "_bunq_me": null,
+        "_swift_bic": null,
+        "_swift_account_number": null,
+        "_transferwise_account_number": null,
+        "_transferwise_bank_code": null,
+        "_merchant_category_code": "7941"
+      },
+      "pointer": {
+        "_type__field_for_request": null,
+        "_value_field_for_request": null,
+        "_name_field_for_request": null,
+        "_service_field_for_request": null,
+        "_name": "Basic-Fit",
+        "_type_": "IBAN",
+        "_value": "NL91ABNA0417164300"
+      }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "3245.75" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null,
+    "_allow_bunqto": null,
+    "_bunqto_status": null,
+    "_bunqto_sub_status": null,
+    "_bunqto_share_url": null,
+    "_bunqto_expiry": null,
+    "_bunqto_time_responded": null
+  }
+]
