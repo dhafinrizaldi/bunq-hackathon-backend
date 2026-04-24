@@ -25,13 +25,17 @@ brew install just
 Available recipes from the repo root:
 
 ```sh
-just sync                # uv sync all three services
+just sync                # uv sync all services including tests
+just bunq-init           # generate bunq_api_context.conf (run once)
+just bunq-seed           # runs seed_deposits.py to request enough money from sugar daddy to match mockdata
 just lint                # ruff check all three services
 just format              # ruff format all three services
+just fix                 # ruff check --fix + ruff format all three services
 just bunq-api            # start the bunq API server (port 8000)
 just mcp-client          # start the MCP client as a FastAPI server (port 8001), spawns the MCP server automatically
 just mcp-client-terminal # run the MCP client interactively in the terminal, spawns the MCP server automatically
 just all                 # start bunq-api and mcp-client concurrently (MCP server spawned automatically)
+just test                # run integration tests (requires just all to be running)
 ```
 
 ## Requirements
@@ -52,7 +56,14 @@ dhafinrz-ubuntu@DESKTOP-O3D42L5:~/projects/bunq-hackathon-7.0$
 
 The first thing you need to do is to create a bunq API KEY, refer to the bunq API docs: https://doc.bunq.com/basics/authentication/api-keys.
 
-Once you have retrieved the API key, create a .env file under the directory bunq-api (the location matters so please ensure you have it at the correct place). Then create an environment variable within this .env file called BUNQ_API_KEY.
+Once you have retrieved the API key, create a .env file at the **project root** with the following variables:
+
+```sh
+BUNQ_API_KEY=your_bunq_key
+ANTHROPIC_API_KEY=your_anthropic_key
+ALPACA_KEY=your_alpaca_paper_trading_key
+ALPACA_SECRET=your_alpaca_paper_trading_secret
+```
 
 Then, you would need to create an virtual environment by running the following command:
 
@@ -65,7 +76,7 @@ source .venv/bin/activate
 Next, generate the bunq API context file (this only needs to be done once):
 
 ```sh
-uv run src/bunq_api/main.py
+just bunq-init
 ```
 
 This will create a `bunq_api_context.conf` file in the `bunq-api` directory, which the server needs to authenticate with bunq.
@@ -80,7 +91,7 @@ Now, the server should be running on port 8000. You can verify this by going to 
 
 ## MCP Client
 
-Similar to the BUNQ API guide, you would need to generate an Anthropic API Key first. Once you have retrieved the API key, go to the mcp-client directory and create a .env file. Then store your API key with the variable name of ANTHROPIC_API_KEY.
+The Anthropic API key is read from the root .env file created in the BUNQ API section above.
 
 Then, you would need to create an virtual environment by running the following command:
 
@@ -106,7 +117,7 @@ INFO:     Started server process [64179]
 INFO:     Waiting for application startup.
 Processing request of type ListToolsRequest
 
-Connected to server with tools: ['get_payments', 'create_payment', 'create_request_inquiry', 'send_payment_by_name', 'send_request_inq_by_name', 'get_user_detail']
+Connected to server with tools: ['get_payments', 'create_payment', 'create_request_inquiry', 'send_payment_by_name', 'send_request_inq_by_name', 'get_user_detail', 'get_alpaca_account', 'get_stock_quote', 'place_stock_order', 'get_alpaca_positions', 'get_alpaca_orders', 'get_investment_history']
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
 ```
@@ -123,7 +134,7 @@ You should see the following output in the terminal:
 (mcp-client) dhafinrz-ubuntu@DESKTOP-O3D42L5:~/projects/bunq-hackathon-7.0/mcp-client$ uv run client.py ../mcp-server/server.py
 Processing request of type ListToolsRequest
 
-Connected to server with tools: ['get_payments', 'create_payment', 'create_request_inquiry', 'send_payment_by_name', 'send_request_inq_by_name', 'get_user_detail']
+Connected to server with tools: ['get_payments', 'create_payment', 'create_request_inquiry', 'send_payment_by_name', 'send_request_inq_by_name', 'get_user_detail', 'get_alpaca_account', 'get_stock_quote', 'place_stock_order', 'get_alpaca_positions', 'get_alpaca_orders', 'get_investment_history']
 
 MCP Client Started!
 Type your queries or 'quit' to exit.

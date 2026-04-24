@@ -1,9 +1,11 @@
 import logging
-from fastapi import APIRouter
+
 from bunq.sdk.model.generated.endpoint import MonetaryAccountApiObject
+from fastapi import APIRouter
 
 router = APIRouter(prefix="/monetary-accounts", tags=["accounts"])
 logger = logging.getLogger(__name__)
+
 
 @router.get("/")
 def list_monetary_accounts():
@@ -11,6 +13,7 @@ def list_monetary_accounts():
     accounts = MonetaryAccountApiObject.list().value
     logger.info("Returning %d accounts", len(accounts))
     return accounts
+
 
 @router.get("/{account_id}")
 def get_monetary_account(account_id: int):

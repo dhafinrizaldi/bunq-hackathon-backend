@@ -1,0 +1,452 @@
+[
+  {
+    "_id_": 31800010,
+    "_created": "2026-04-01 08:14:22.000000",
+    "_updated": "2026-04-01 08:14:22.000000",
+    "_monetary_account_id": 3606570,
+    "_amount": { "_currency": "EUR", "_value": "147.00" },
+    "_payment_fee": null,
+    "_description": "Zorgtoeslag april 2026",
+    "_type_": "BUNQ",
+    "_merchant_reference": null,
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL52BUNQ2106112017",
+        "_is_light": false,
+        "_display_name": "A. Evans",
+        "_country": "NL",
+        "_bunq_me": null,
+        "_merchant_category_code": null
+      },
+      "pointer": { "_name": "A. Evans", "_type_": "IBAN", "_value": "NL52BUNQ2106112017" }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL86INGB0002445588",
+        "_is_light": false,
+        "_display_name": "Belastingdienst",
+        "_country": "NL",
+        "_bunq_me": null,
+        "_merchant_category_code": null
+      },
+      "pointer": { "_name": "Belastingdienst", "_type_": "IBAN", "_value": "NL86INGB0002445588" }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "3984.50" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null
+  },
+  {
+    "_id_": 31800009,
+    "_created": "2026-03-25 07:03:11.000000",
+    "_updated": "2026-03-25 07:03:11.000000",
+    "_monetary_account_id": 3606570,
+    "_amount": { "_currency": "EUR", "_value": "2640.00" },
+    "_payment_fee": null,
+    "_description": "Salaris maart 2026",
+    "_type_": "BUNQ",
+    "_merchant_reference": null,
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL52BUNQ2106112017",
+        "_is_light": false,
+        "_display_name": "A. Evans",
+        "_country": "NL",
+        "_bunq_me": null,
+        "_merchant_category_code": null
+      },
+      "pointer": { "_name": "A. Evans", "_type_": "IBAN", "_value": "NL52BUNQ2106112017" }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL91ABNA0417164300",
+        "_is_light": false,
+        "_display_name": "ASML Netherlands B.V.",
+        "_country": "NL",
+        "_bunq_me": null,
+        "_merchant_category_code": null
+      },
+      "pointer": { "_name": "ASML Netherlands B.V.", "_type_": "IBAN", "_value": "NL91ABNA0417164300" }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "3837.50" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null
+  },
+  {
+    "_id_": 31800008,
+    "_created": "2026-03-12 16:45:33.000000",
+    "_updated": "2026-03-12 16:45:33.000000",
+    "_monetary_account_id": 3606570,
+    "_amount": { "_currency": "EUR", "_value": "200.00" },
+    "_payment_fee": null,
+    "_description": "Huur deel april",
+    "_type_": "BUNQ",
+    "_merchant_reference": null,
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL52BUNQ2106112017",
+        "_is_light": false,
+        "_display_name": "A. Evans",
+        "_country": "NL",
+        "_bunq_me": null,
+        "_merchant_category_code": null
+      },
+      "pointer": { "_name": "A. Evans", "_type_": "IBAN", "_value": "NL52BUNQ2106112017" }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL44RABO0123456789",
+        "_is_light": false,
+        "_display_name": "J. van der Berg",
+        "_country": "NL",
+        "_bunq_me": null,
+        "_merchant_category_code": null
+      },
+      "pointer": { "_name": "J. van der Berg", "_type_": "IBAN", "_value": "NL44RABO0123456789" }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "1197.50" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null
+  },
+  {
+    "_id_": 31800007,
+    "_created": "2026-03-01 09:22:05.000000",
+    "_updated": "2026-03-01 09:22:05.000000",
+    "_monetary_account_id": 3606570,
+    "_amount": { "_currency": "EUR", "_value": "265.00" },
+    "_payment_fee": null,
+    "_description": "Kinderbijslag Q1 2026",
+    "_type_": "BUNQ",
+    "_merchant_reference": null,
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL52BUNQ2106112017",
+        "_is_light": false,
+        "_display_name": "A. Evans",
+        "_country": "NL",
+        "_bunq_me": null,
+        "_merchant_category_code": null
+      },
+      "pointer": { "_name": "A. Evans", "_type_": "IBAN", "_value": "NL52BUNQ2106112017" }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL57INGB0000025890",
+        "_is_light": false,
+        "_display_name": "SVB",
+        "_country": "NL",
+        "_bunq_me": null,
+        "_merchant_category_code": null
+      },
+      "pointer": { "_name": "SVB", "_type_": "IBAN", "_value": "NL57INGB0000025890" }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "997.50" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null
+  },
+  {
+    "_id_": 31800006,
+    "_created": "2026-02-25 07:01:58.000000",
+    "_updated": "2026-02-25 07:01:58.000000",
+    "_monetary_account_id": 3606570,
+    "_amount": { "_currency": "EUR", "_value": "2640.00" },
+    "_payment_fee": null,
+    "_description": "Salaris februari 2026",
+    "_type_": "BUNQ",
+    "_merchant_reference": null,
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL52BUNQ2106112017",
+        "_is_light": false,
+        "_display_name": "A. Evans",
+        "_country": "NL",
+        "_bunq_me": null,
+        "_merchant_category_code": null
+      },
+      "pointer": { "_name": "A. Evans", "_type_": "IBAN", "_value": "NL52BUNQ2106112017" }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL91ABNA0417164300",
+        "_is_light": false,
+        "_display_name": "ASML Netherlands B.V.",
+        "_country": "NL",
+        "_bunq_me": null,
+        "_merchant_category_code": null
+      },
+      "pointer": { "_name": "ASML Netherlands B.V.", "_type_": "IBAN", "_value": "NL91ABNA0417164300" }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "732.50" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null
+  },
+  {
+    "_id_": 31800005,
+    "_created": "2026-02-10 11:38:47.000000",
+    "_updated": "2026-02-10 11:38:47.000000",
+    "_monetary_account_id": 3606570,
+    "_amount": { "_currency": "EUR", "_value": "730.00" },
+    "_payment_fee": null,
+    "_description": "Teruggaaf IB 2025",
+    "_type_": "BUNQ",
+    "_merchant_reference": null,
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL52BUNQ2106112017",
+        "_is_light": false,
+        "_display_name": "A. Evans",
+        "_country": "NL",
+        "_bunq_me": null,
+        "_merchant_category_code": null
+      },
+      "pointer": { "_name": "A. Evans", "_type_": "IBAN", "_value": "NL52BUNQ2106112017" }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL86INGB0002445588",
+        "_is_light": false,
+        "_display_name": "Belastingdienst",
+        "_country": "NL",
+        "_bunq_me": null,
+        "_merchant_category_code": null
+      },
+      "pointer": { "_name": "Belastingdienst", "_type_": "IBAN", "_value": "NL86INGB0002445588" }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "2907.50" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null
+  },
+  {
+    "_id_": 31800004,
+    "_created": "2026-01-25 07:04:39.000000",
+    "_updated": "2026-01-25 07:04:39.000000",
+    "_monetary_account_id": 3606570,
+    "_amount": { "_currency": "EUR", "_value": "2640.00" },
+    "_payment_fee": null,
+    "_description": "Salaris januari 2026",
+    "_type_": "BUNQ",
+    "_merchant_reference": null,
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL52BUNQ2106112017",
+        "_is_light": false,
+        "_display_name": "A. Evans",
+        "_country": "NL",
+        "_bunq_me": null,
+        "_merchant_category_code": null
+      },
+      "pointer": { "_name": "A. Evans", "_type_": "IBAN", "_value": "NL52BUNQ2106112017" }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL91ABNA0417164300",
+        "_is_light": false,
+        "_display_name": "ASML Netherlands B.V.",
+        "_country": "NL",
+        "_bunq_me": null,
+        "_merchant_category_code": null
+      },
+      "pointer": { "_name": "ASML Netherlands B.V.", "_type_": "IBAN", "_value": "NL91ABNA0417164300" }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "2177.50" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null
+  },
+  {
+    "_id_": 31800003,
+    "_created": "2026-01-01 08:55:12.000000",
+    "_updated": "2026-01-01 08:55:12.000000",
+    "_monetary_account_id": 3606570,
+    "_amount": { "_currency": "EUR", "_value": "380.00" },
+    "_payment_fee": null,
+    "_description": "Huurtoeslag januari 2026",
+    "_type_": "BUNQ",
+    "_merchant_reference": null,
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL52BUNQ2106112017",
+        "_is_light": false,
+        "_display_name": "A. Evans",
+        "_country": "NL",
+        "_bunq_me": null,
+        "_merchant_category_code": null
+      },
+      "pointer": { "_name": "A. Evans", "_type_": "IBAN", "_value": "NL52BUNQ2106112017" }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL86INGB0002445588",
+        "_is_light": false,
+        "_display_name": "Belastingdienst",
+        "_country": "NL",
+        "_bunq_me": null,
+        "_merchant_category_code": null
+      },
+      "pointer": { "_name": "Belastingdienst", "_type_": "IBAN", "_value": "NL86INGB0002445588" }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "917.50" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null
+  },
+  {
+    "_id_": 31800002,
+    "_created": "2025-12-25 07:02:44.000000",
+    "_updated": "2025-12-25 07:02:44.000000",
+    "_monetary_account_id": 3606570,
+    "_amount": { "_currency": "EUR", "_value": "2640.00" },
+    "_payment_fee": null,
+    "_description": "Salaris december 2025 incl. vakantiegeld",
+    "_type_": "BUNQ",
+    "_merchant_reference": null,
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL52BUNQ2106112017",
+        "_is_light": false,
+        "_display_name": "A. Evans",
+        "_country": "NL",
+        "_bunq_me": null,
+        "_merchant_category_code": null
+      },
+      "pointer": { "_name": "A. Evans", "_type_": "IBAN", "_value": "NL52BUNQ2106112017" }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL91ABNA0417164300",
+        "_is_light": false,
+        "_display_name": "ASML Netherlands B.V.",
+        "_country": "NL",
+        "_bunq_me": null,
+        "_merchant_category_code": null
+      },
+      "pointer": { "_name": "ASML Netherlands B.V.", "_type_": "IBAN", "_value": "NL91ABNA0417164300" }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "537.50" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null
+  },
+  {
+    "_id_": 31800001,
+    "_created": "2025-11-28 14:17:09.000000",
+    "_updated": "2025-11-28 14:17:09.000000",
+    "_monetary_account_id": 3606570,
+    "_amount": { "_currency": "EUR", "_value": "150.00" },
+    "_payment_fee": null,
+    "_description": "Terugbetaling lening",
+    "_type_": "BUNQ",
+    "_merchant_reference": null,
+    "_alias": {
+      "label_monetary_account": {
+        "_iban": "NL52BUNQ2106112017",
+        "_is_light": false,
+        "_display_name": "A. Evans",
+        "_country": "NL",
+        "_bunq_me": null,
+        "_merchant_category_code": null
+      },
+      "pointer": { "_name": "A. Evans", "_type_": "IBAN", "_value": "NL52BUNQ2106112017" }
+    },
+    "_counterparty_alias": {
+      "label_monetary_account": {
+        "_iban": "NL63TRIO0212345678",
+        "_is_light": false,
+        "_display_name": "M. de Vries",
+        "_country": "NL",
+        "_bunq_me": null,
+        "_merchant_category_code": null
+      },
+      "pointer": { "_name": "M. de Vries", "_type_": "IBAN", "_value": "NL63TRIO0212345678" }
+    },
+    "_attachment": [],
+    "_geolocation": null,
+    "_batch_id": null,
+    "_scheduled_id": null,
+    "_address_billing": null,
+    "_address_shipping": null,
+    "_sub_type": "PAYMENT",
+    "_payment_arrival_expected": { "_status": "ARRIVED", "_time": null },
+    "_request_reference_split_the_bill": [],
+    "_balance_after_mutation": { "_currency": "EUR", "_value": "500.00" },
+    "_payment_auto_allocate_instance": null,
+    "_payment_suspended_outgoing": null
+  }
+]
