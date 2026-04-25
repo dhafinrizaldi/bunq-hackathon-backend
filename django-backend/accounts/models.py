@@ -18,7 +18,10 @@ class CustomUserManager(BaseUserManager):
 
 class CustomUser(AbstractUser):
     email = models.EmailField('email', unique=True)
-    
+    username = models.CharField(max_length=150, blank=True, null=True, unique=True)
+    bunq_api_key = models.CharField(max_length=255, blank=True, null=True)
+    bunq_context = models.JSONField(null=True, blank=True)
+
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
     
@@ -26,3 +29,15 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return self.email
+    
+    def get_bunq_id(self):
+        """Get bunq id from context"""
+        context = self.bunq_context
+        user_id = context.get('session_context', {}).get('user_id')
+        return user_id
+    
+    def get_session_token(self):
+        """Get bunq session token"""
+        context = self.bunq_context
+        tok = context.get('session_context', {}).get('token')
+        return tok
