@@ -1,7 +1,6 @@
 from rest_framework import serializers
-from .models import CustomUser
+from .models import CustomUser, Contact, SalarySetup, AllocationRule
 from django.contrib.auth import authenticate
-
 from rest_framework.exceptions import ValidationError
 
 class RegisterSerializer(serializers.ModelSerializer):
@@ -43,3 +42,35 @@ class LoginUserSerializer(serializers.Serializer):
                 raise InactiveUserError()
         else:
             raise InvalidCredentialsError()
+
+
+class ContactSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Contact
+        fields = ["id", "nickname", "display_name", "iban", "bunq_user_id"]
+
+
+class AllocationRuleSerializer(serializers.ModelSerializer):
+    contact_nickname = serializers.SerializerMethodField()
+
+    class Meta:
+        model = AllocationRule
+        fields = [
+            "id", "rule_type", "amount_type", "amount",
+            "contact_nickname", "invest_symbol", "savings_iban",
+            "description", "order",
+        ]
+
+    def get_contact_nickname(self, obj):
+        return obj.contact.nickname if obj.contact else None
+
+
+class SalarySetupSerializer(serializers.ModelSerializer):
+    rules = AllocationRuleSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = SalarySetup
+        fields = [
+            "id", "raw_description", "trigger_keyword", "trigger_min_amount",
+            "is_active", "rules", "created_at", "updated_at",
+        ]

@@ -1,17 +1,17 @@
 import asyncio
 import logging
-from typing import Optional
 from contextlib import AsyncExitStack
-
-from mcp import ClientSession, StdioServerParameters
-from mcp.client.stdio import stdio_client
+from typing import Optional
 
 from anthropic import Anthropic
 from dotenv import load_dotenv
+from mcp import ClientSession, StdioServerParameters
+from mcp.client.stdio import stdio_client
 
 load_dotenv()  # load environment variables from .env
 
 logger = logging.getLogger(__name__)
+
 
 class MCPClient:
     def __init__(self):
@@ -20,6 +20,7 @@ class MCPClient:
         self.exit_stack = AsyncExitStack()
         self.anthropic = Anthropic()
         self.conversation_history = []
+
     # methods will go here
 
     async def connect_to_server(self, server_script_path: str):
@@ -28,21 +29,23 @@ class MCPClient:
         Args:
             server_script_path: Path to the server script (.py or .js)
         """
-        is_python = server_script_path.endswith('.py')
-        is_js = server_script_path.endswith('.js')
+        is_python = server_script_path.endswith(".py")
+        is_js = server_script_path.endswith(".js")
         if not (is_python or is_js):
             raise ValueError("Server script must be a .py or .js file")
 
         command = "python" if is_python else "node"
         server_params = StdioServerParameters(
-            command=command,
-            args=[server_script_path],
-            env=None
+            command=command, args=[server_script_path], env=None
         )
 
-        stdio_transport = await self.exit_stack.enter_async_context(stdio_client(server_params))
+        stdio_transport = await self.exit_stack.enter_async_context(
+            stdio_client(server_params)
+        )
         self.stdio, self.write = stdio_transport
-        self.session = await self.exit_stack.enter_async_context(ClientSession(self.stdio, self.write))
+        self.session = await self.exit_stack.enter_async_context(
+            ClientSession(self.stdio, self.write)
+        )
 
         await self.session.initialize()
 
@@ -52,74 +55,66 @@ class MCPClient:
         logger.info("Connected to server with tools: %s", [tool.name for tool in tools])
 
     async def process_query(self, query: str) -> str:
-        # Append new user message to persistent history
-        self.conversation_history.append({
-            "role": "user",
-            "content": query
-        })
+        self.conversation_history.append({"role": "user", "content": query})
 
         response = await self.session.list_tools()
-        available_tools = [{
-            "name": tool.name,
-            "description": tool.description,
-            "input_schema": tool.inputSchema
-        } for tool in response.tools]
+        available_tools = [
+            {
+                "name": tool.name,
+                "description": tool.description,
+                "input_schema": tool.inputSchema,
+            }
+            for tool in response.tools
+        ]
 
-        # Use the full history instead of a fresh list
         response = self.anthropic.messages.create(
-            model="claude-sonnet-4-20250514",
-            max_tokens=1000,
-            messages=self.conversation_history,  # ← use shared history
-            tools=available_tools
+            model="claude-sonnet-4-6",
+            max_tokens=4096,
+            messages=self.conversation_history,
+            tools=available_tools,
         )
 
         final_text = []
-        assistant_message_content = []
 
-        for content in response.content:
-            if content.type == 'text':
-                final_text.append(content.text)
-                assistant_message_content.append(content)
-            elif content.type == 'tool_use':
-                tool_name = content.name
-                tool_args = content.input
+        # Keep calling tools until Claude returns a stop_reason of "end_turn"
+        while response.stop_reason == "tool_use":
+            assistant_message_content = list(response.content)
 
-                logger.info("Calling tool %s with args %s", tool_name, tool_args)
-                result = await self.session.call_tool(tool_name, tool_args)
-                logger.info("Tool %s returned successfully", tool_name)
-                final_text.append(f"[Calling tool {tool_name} with args {tool_args}]")
-
-                assistant_message_content.append(content)
-                self.conversation_history.append({   # ← append to shared history
-                    "role": "assistant",
-                    "content": assistant_message_content
-                })
-                self.conversation_history.append({   # ← append to shared history
-                    "role": "user",
-                    "content": [{
+            # Collect all tool results for this round before the next API call
+            tool_results = []
+            for content in response.content:
+                if content.type == "text":
+                    final_text.append(content.text)
+                elif content.type == "tool_use":
+                    logger.info("Calling tool %s with args %s", content.name, content.input)
+                    result = await self.session.call_tool(content.name, content.input)
+                    logger.info("Tool %s returned successfully", content.name)
+                    final_text.append(f"[Calling tool {content.name} with args {content.input}]")
+                    tool_results.append({
                         "type": "tool_result",
                         "tool_use_id": content.id,
-                        "content": result.content
-                    }]
-                })
+                        "content": result.content,
+                    })
 
-                response = self.anthropic.messages.create(
-                    model="claude-sonnet-4-20250514",
-                    max_tokens=1000,
-                    messages=self.conversation_history,  # ← use shared history
-                    tools=available_tools
-                )
+            self.conversation_history.append({"role": "assistant", "content": assistant_message_content})
+            self.conversation_history.append({"role": "user", "content": tool_results})
 
-                final_text.append(response.content[0].text)
+            response = self.anthropic.messages.create(
+                model="claude-sonnet-4-6",
+                max_tokens=4096,
+                messages=self.conversation_history,
+                tools=available_tools,
+            )
 
-        # Save the final assistant response to history
-        self.conversation_history.append({
-            "role": "assistant",
-            "content": response.content[0].text
-        })
+        # Final text response
+        for content in response.content:
+            if content.type == "text":
+                final_text.append(content.text)
+
+        self.conversation_history.append({"role": "assistant", "content": response.content})
 
         return "\n".join(final_text)
-    
+
     async def chat_loop(self):
         """Run an interactive chat loop"""
         print("\nMCP Client Started!")
@@ -129,7 +124,7 @@ class MCPClient:
             try:
                 query = input("\nQuery: ").strip()
 
-                if query.lower() == 'quit':
+                if query.lower() == "quit":
                     break
 
                 response = await self.process_query(query)
@@ -141,6 +136,7 @@ class MCPClient:
     async def cleanup(self):
         """Clean up resources"""
         await self.exit_stack.aclose()
+
 
 async def main():
     if len(sys.argv) < 2:
@@ -159,14 +155,3 @@ if __name__ == "__main__":
     import sys
 
     asyncio.run(main())
-       
-
-
-
-
-
-
-
-
-
-

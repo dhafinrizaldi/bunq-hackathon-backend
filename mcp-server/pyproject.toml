@@ -7,6 +7,7 @@ requires-python = ">=3.11"
 dependencies = [
     "httpx>=0.28.1",
     "mcp[cli]>=1.27.0",
+    "python-dotenv>=1.0.0",
 ]
 
 [tool.uv]
@@ -16,3 +17,4 @@ dev-dependencies = [
 
 [tool.ruff.lint]
 select = ["E", "F", "I"]
+ignore = ["E501"]

@@ -1,10 +1,12 @@
 import logging
-from fastapi import APIRouter, Request
-from bunq.sdk.model.generated.endpoint import UserApiObject, UserPersonApiObject
+
 from bunq.sdk.context.bunq_context import BunqContext
+from bunq.sdk.model.generated.endpoint import UserApiObject
+from fastapi import APIRouter, Request
 
 router = APIRouter(prefix="/users", tags=["accounts"])
 logger = logging.getLogger(__name__)
+
 
 @router.get("/")
 def list_users():
@@ -12,10 +14,12 @@ def list_users():
     users = UserApiObject.list().value
     return users
 
+
 # @router.get("/{user_id}")
 # def get_user(user_id: int):
 #     user = UserApiObject.get(user_id).value
 #     return user
+
 
 @router.get("/me")
 def get_current_user(request: Request):

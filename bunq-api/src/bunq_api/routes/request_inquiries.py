@@ -1,10 +1,12 @@
 import logging
-from fastapi import APIRouter, Request
+
 from bunq.sdk.model.generated.endpoint import RequestInquiryApiObject
 from bunq.sdk.model.generated.object_ import AmountObject, PointerObject
+from fastapi import APIRouter, Request
 
 router = APIRouter(prefix="/request_inqs", tags=["accounts"])
 logger = logging.getLogger(__name__)
+
 
 @router.get("/")
 def list_request_inqs():
@@ -18,20 +20,22 @@ def list_request_inqs():
 
     return request_inqs
 
+
 @router.post("/")
 async def create_request_inq(request: Request):
     request_inq = await request.json()
     logger.info("Creating request inquiry: %s", request_inq)
     request_inq_id = RequestInquiryApiObject.create(
-        amount_inquired=AmountObject(request_inq.get('amount', 0), request_inq.get('currency', "EUR")),
+        amount_inquired=AmountObject(
+            request_inq.get("amount", 0), request_inq.get("currency", "EUR")
+        ),
         counterparty_alias=PointerObject(
-            request_inq.get('counterparty_type'),
-            request_inq.get('counterparty_alias'),
-            request_inq.get('counterparty_name', 'Unknown')  # add this!
-
-                                         ),
-        description=request_inq.get('description'),
-        allow_bunqme=True
+            request_inq.get("counterparty_type"),
+            request_inq.get("counterparty_alias"),
+            request_inq.get("counterparty_name", "Unknown"),  # add this!
+        ),
+        description=request_inq.get("description"),
+        allow_bunqme=True,
     ).value
     logger.info("Request inquiry created with id: %s", request_inq_id)
     return RequestInquiryApiObject.get(request_inq_id).value
