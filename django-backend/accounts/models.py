@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
-
+import requests
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
         if not email:
@@ -41,3 +41,20 @@ class CustomUser(AbstractUser):
         context = self.bunq_context
         tok = context.get('session_context', {}).get('token')
         return tok
+
+    def get_primary_account(self):
+        user_id = self.get_bunq_id()        
+        session_token = self.get_session_token()        
+        url = f"https://public-api.sandbox.bunq.com/v1/user/{user_id}/monetary-account-bank"
+        
+        response = requests.get(url, headers={
+            "User-Agent": "django-app", 
+            "Content-Type": "application/json",
+            "X-Bunq-Client-Authentication": session_token
+            }).json()
+        
+        accounts = response.get('Response', [])
+        for acc in accounts:
+            acc_detail = next(iter(acc.values()))
+            if acc_detail.get('status') == 'ACTIVE':
+                return acc_detail

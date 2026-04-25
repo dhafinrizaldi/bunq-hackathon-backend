@@ -176,3 +176,57 @@ class MonetaryAccountViewSet(viewsets.GenericViewSet):
        
         return Response(data,
                                 status=status.HTTP_200_OK)
+    
+
+class PaymentViewSet(viewsets.GenericViewSet):
+
+    def list(self, request):
+        user = request.user
+        user_id = user.get_bunq_id()        
+        session_token = user.get_session_token()     
+        primary_account = user.get_primary_account()
+        # print('Primary account: ', primary_account) 
+        
+        url = f"https://public-api.sandbox.bunq.com/v1/user/{user_id}/monetary-account/{primary_account['id']}/payment"
+        
+        response = requests.get(url, headers={
+            "User-Agent": "django-app", 
+            "Content-Type": "application/json",
+            "X-Bunq-Client-Authentication": session_token
+            })
+        response.raise_for_status()
+        
+        data = response.json()
+       
+        return Response(data,
+                                status=status.HTTP_200_OK)
+    
+    def create(self, request):
+        user = request.user
+        user_id = user.get_bunq_id()
+        session_token = user.get_session_token()
+        primary_account = user.get_primary_account()
+
+        url = f"https://public-api.sandbox.bunq.com/v1/user/{user_id}/monetary-account/{primary_account['id']}/payment"
+
+        payload = {
+            "amount": request.data.get("amount"),
+            "counterparty_alias": request.data.get("counterparty_alias"),
+            "description": request.data.get("description"),
+        }
+
+        if request.data.get("attachment"):
+            payload["attachment"] = request.data.get("attachment")
+        if request.data.get("merchant_reference"):
+            payload["merchant_reference"] = request.data.get("merchant_reference")
+        if request.data.get("allow_bunqto") is not None:
+            payload["allow_bunqto"] = request.data.get("allow_bunqto")
+
+        response = requests.post(url, json=payload, headers={
+            "User-Agent": "django-app",
+            "Content-Type": "application/json",
+            "X-Bunq-Client-Authentication": session_token,
+        })
+        response.raise_for_status()
+
+        return Response(response.json(), status=status.HTTP_201_CREATED)
