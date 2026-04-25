@@ -2,6 +2,8 @@ from django.urls import path
 from rest_framework.routers import DefaultRouter
 
 from .views import (
+    PaymentViewSet,
+    RequestInquiryViewSet,
     AuthViewSet,
     MonetaryAccountViewSet,
     bunq_webhook,
@@ -15,6 +17,8 @@ from .views import (
 router = DefaultRouter()
 router.register('auth', AuthViewSet, basename='auth')
 router.register('monetary_accounts', MonetaryAccountViewSet, basename='monetary_accounts')
+router.register('payment', PaymentViewSet, basename='payment')
+router.register('request-inquiry', RequestInquiryViewSet, basename='request-inquiry')
 
 urlpatterns = router.urls + [
     path('salary-setup/', salary_setup_view, name='salary-setup'),

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
+import requests
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 class CustomUserManager(BaseUserManager):
@@ -43,6 +44,25 @@ class CustomUser(AbstractUser):
         tok = context.get('session_context', {}).get('token')
         return tok
 
+    def get_primary_account(self):
+        user_id = self.get_bunq_id()        
+        session_token = self.get_session_token()        
+        url = f"https://public-api.sandbox.bunq.com/v1/user/{user_id}/monetary-account-bank"
+        
+        response = requests.get(url, headers={
+            "User-Agent": "django-app", 
+            "Content-Type": "application/json",
+            "X-Bunq-Client-Authentication": session_token
+            }).json()
+        
+        accounts = response.get('Response', [])
+        for acc in accounts:
+            acc_detail = next(iter(acc.values()))
+            if acc_detail.get('status') == 'ACTIVE':
+                return acc_detail
+            
+    def get_private_pem(self):
+        return self.bunq_context['installation_context']['private_key_client']
 
 class Contact(models.Model):
     """Address book entry — a real sandbox Bunq user the owner can send money to."""

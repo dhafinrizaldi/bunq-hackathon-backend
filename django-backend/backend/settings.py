@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-e*o4(c*cxapp^4-v_ira#3msbgt9qfk$db5+^@d6n-(*tj=y-)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -136,8 +136,15 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+CORS_ALLOW_ALL_ORIGINS = True
 
-
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_HEADERS = [
+    'content-type',
+    'authorization',
+    'access-control-allow-origin',
+    'access-control-allow-credentials'
+]
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
