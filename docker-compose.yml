@@ -4,8 +4,8 @@ services:
   db:
     image: postgres:15
     environment:
-      POSTGRES_USER: splituser
-      POSTGRES_PASSWORD: splitpassword
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
       POSTGRES_DB: splitdb
     ports:
       - "5432:5432"
