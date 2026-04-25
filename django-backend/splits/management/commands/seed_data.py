@@ -150,9 +150,34 @@ class Command(BaseCommand):
                 amount=Decimal('19.50'), bunq_request_id='bunq-req-006', status=PaymentRequest.Status.PAID,
             )
 
+        self.stdout.write('Creating un-split transactions for the demo...')
+
+        OriginalTransaction.objects.get_or_create(
+            bunq_transaction_id='bunq-tx-003',
+            defaults={
+                'initiator': admin,
+                'merchant_name': 'Cafe de Jaren',
+                'total_amount': Decimal('38.20'),
+                'currency': 'EUR',
+                'date': timezone.now(),
+            },
+        )
+        OriginalTransaction.objects.get_or_create(
+            bunq_transaction_id='bunq-tx-004',
+            defaults={
+                'initiator': admin,
+                'merchant_name': 'De Foodhallen',
+                'total_amount': Decimal('52.75'),
+                'currency': 'EUR',
+                'date': timezone.now(),
+            },
+        )
+
         self.stdout.write(self.style.SUCCESS(
-            '\nDone! Created 2 split sessions.\n'
+            '\nDone! Created 4 transactions and 2 split sessions.\n'
             '  admin@example.com / admin\n'
             '  Session 1 (Bar Plein) — partially paid (Jeremy paid, Ana+Tim pending)\n'
             '  Session 2 (Restaurant Blauw) — fully paid\n'
+            '  Tx 3 (Cafe de Jaren) — fresh, no split yet\n'
+            '  Tx 4 (De Foodhallen) — fresh, no split yet\n'
         ))

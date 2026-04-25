@@ -1,7 +1,23 @@
 {
   "permissions": {
     "allow": [
-      "Bash(/c/Users/MORO/.local/bin/uv.exe run *)"
+      "Bash(/c/Users/MORO/.local/bin/uv.exe run *)",
+      "Bash(ipconfig)",
+      "Bash(docker exec *)",
+      "PowerShell(docker exec --user postgres bunq-hackathon-backend-db-1 psql -l 2>&1)",
+      "PowerShell(docker exec --user postgres bunq-hackathon-backend-db-1 sh -c 'ls /var/lib/postgresql/data | head -20' 2>&1)",
+      "PowerShell(docker exec --user postgres bunq-hackathon-backend-db-1 sh -c 'ls /var/lib/postgresql/data/pg_hba.conf && head -50 /var/lib/postgresql/data/pg_hba.conf' 2>&1)",
+      "PowerShell(docker exec --user postgres bunq-hackathon-backend-db-1 sh -c 'cat /var/lib/postgresql/data/pg_hba.conf | tail -10; echo \"---\"; ls /var/lib/postgresql/data/base/' 2>&1)",
+      "PowerShell(docker exec --user postgres bunq-hackathon-backend-db-1 sh -c 'grep -v \"^#\" /var/lib/postgresql/data/pg_hba.conf | grep -v \"^$\" | head -10' 2>&1)",
+      "PowerShell(docker exec --user postgres bunq-hackathon-backend-db-1 sh -c 'cat /etc/passwd | grep -i postgres; whoami; psql -U $\\(whoami\\) postgres -c \"\\\\du\" 2>&1 | head -20' 2>&1)",
+      "PowerShell(docker exec --user postgres bunq-hackathon-backend-db-1 sh -c 'apt list --installed 2>/dev/null | grep -i bin; which strings; ls /var/lib/postgresql/data/global/' 2>&1)",
+      "PowerShell(@\\('postgres','splitdb','admin','user','splitter','bunq','dev','dhafin','dhafinrizaldi'\\) | ForEach-Object { $u = $_; docker exec --user postgres bunq-hackathon-backend-db-1 psql -U $u -d postgres -c \"SELECT current_user;\" 2>&1 | Select-Object -First 1 | ForEach-Object { \"[$u] $_\" } })",
+      "PowerShell(docker exec --user postgres bunq-hackathon-backend-db-1 sh -c 'grep -E \"^port\" /var/lib/postgresql/data/postgresql.conf 2>&1; echo \"---\"; netstat -tnlp 2>/dev/null | head -10' 2>&1)",
+      "PowerShell(docker exec --user postgres bunq-hackathon-backend-db-1 sh -c 'grep -E \"port|listen\" /var/lib/postgresql/data/postgresql.conf | grep -v \"^#\"' 2>&1)",
+      "PowerShell(docker exec --user postgres bunq-hackathon-backend-db-1 sh -c \"grep -E '^port|^listen_addresses' /var/lib/postgresql/data/postgresql.conf\" 2>&1)",
+      "PowerShell(docker exec --user postgres bunq-hackathon-backend-db-1 sh -c \"pg_ctl status -D /var/lib/postgresql/data 2>&1; echo '---SINGLE---'; postgres --single -D /var/lib/postgresql/data postgres <<< 'SELECT rolname FROM pg_authid;' 2>&1 | head -30\")",
+      "PowerShell(docker exec --user postgres bunq-hackathon-backend-db-1 bash -c \"echo 'SELECT rolname FROM pg_authid LIMIT 20;' | postgres --single -D /var/lib/postgresql/data postgres 2>&1 | tail -30\")",
+      "Bash(docker compose *)"
     ]
   }
 }

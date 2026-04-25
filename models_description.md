@@ -8,8 +8,9 @@ You see your list of friends who have the app, Jeremy, Ana, and Tim are with you
 
 Implementation:
 
-This is a mobile app, Django is backend, React Native frontend with expo. Django apps so far thought of are Accounts and Splits.
+This is a mobile app, Django is backend, React Native frontend with expo. MCP server and client for llm related tasks. Django apps so far thought of are Accounts and Splits.
 
 Your task:
 
-Come up with the Django models for the backend apps, if needed come up with more apps.
+Implement the Receipt Image-> MCP -> ReceiptItems
+

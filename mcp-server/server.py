@@ -1,4 +1,5 @@
 import logging
+import os
 import re
 from pathlib import Path
 from typing import Any
@@ -22,7 +23,7 @@ mcp = FastMCP("bunq-mcp-server")
 alpaca_tools.register(mcp)
 
 # Constants
-BUNQ_API_BASE = "http://127.0.0.1:8000"
+BUNQ_API_BASE = os.getenv("BUNQ_API_BASE", "http://127.0.0.1:8002")
 USER_AGENT = "recipts-app/1.0"
 
 

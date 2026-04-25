@@ -5,7 +5,7 @@ bunq-seed:
     cd bunq-api && uv run python seed_deposits.py
 
 bunq-api:
-    cd bunq-api && uv run uvicorn src.bunq_api.app:app --reload
+    cd bunq-api && uv run uvicorn src.bunq_api.app:app --reload --port 8002
 
 mcp-client:
     cd mcp-client && uv run app.py ../mcp-server/server.py
@@ -15,7 +15,7 @@ mcp-client-terminal:
 
 all:
     #!/usr/bin/env bash
-    cd bunq-api && uv run uvicorn src.bunq_api.app:app --reload &
+    cd bunq-api && uv run uvicorn src.bunq_api.app:app --reload --port 8002 &
     cd mcp-client && uv run app.py ../mcp-server/server.py &
     wait
 

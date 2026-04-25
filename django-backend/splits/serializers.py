@@ -107,3 +107,12 @@ class SplitSessionDetailSerializer(serializers.ModelSerializer):
         if not payment_requests.exists():
             return False
         return payment_requests.filter(status=PaymentRequest.Status.PAID).count() == payment_requests.count()
+
+
+class SplitSessionCreateSerializer(serializers.ModelSerializer):
+    """Used to create a SplitSession from an existing OriginalTransaction id."""
+
+    class Meta:
+        model = SplitSession
+        fields = ('id', 'transaction', 'status')
+        read_only_fields = ('id', 'status')
