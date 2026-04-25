@@ -55,7 +55,6 @@ class MCPClient:
         logger.info("Connected to server with tools: %s", [tool.name for tool in tools])
 
     async def process_query(self, query: str) -> str:
-        # Append new user message to persistent history
         self.conversation_history.append({"role": "user", "content": query})
 
         response = await self.session.list_tools()
@@ -68,63 +67,51 @@ class MCPClient:
             for tool in response.tools
         ]
 
-        # Use the full history instead of a fresh list
         response = self.anthropic.messages.create(
-            model="claude-sonnet-4-20250514",
-            max_tokens=1000,
-            messages=self.conversation_history,  # ← use shared history
+            model="claude-sonnet-4-6",
+            max_tokens=4096,
+            messages=self.conversation_history,
             tools=available_tools,
         )
 
         final_text = []
-        assistant_message_content = []
 
+        # Keep calling tools until Claude returns a stop_reason of "end_turn"
+        while response.stop_reason == "tool_use":
+            assistant_message_content = list(response.content)
+
+            # Collect all tool results for this round before the next API call
+            tool_results = []
+            for content in response.content:
+                if content.type == "text":
+                    final_text.append(content.text)
+                elif content.type == "tool_use":
+                    logger.info("Calling tool %s with args %s", content.name, content.input)
+                    result = await self.session.call_tool(content.name, content.input)
+                    logger.info("Tool %s returned successfully", content.name)
+                    final_text.append(f"[Calling tool {content.name} with args {content.input}]")
+                    tool_results.append({
+                        "type": "tool_result",
+                        "tool_use_id": content.id,
+                        "content": result.content,
+                    })
+
+            self.conversation_history.append({"role": "assistant", "content": assistant_message_content})
+            self.conversation_history.append({"role": "user", "content": tool_results})
+
+            response = self.anthropic.messages.create(
+                model="claude-sonnet-4-6",
+                max_tokens=4096,
+                messages=self.conversation_history,
+                tools=available_tools,
+            )
+
+        # Final text response
         for content in response.content:
             if content.type == "text":
                 final_text.append(content.text)
-                assistant_message_content.append(content)
-            elif content.type == "tool_use":
-                tool_name = content.name
-                tool_args = content.input
 
-                logger.info("Calling tool %s with args %s", tool_name, tool_args)
-                result = await self.session.call_tool(tool_name, tool_args)
-                logger.info("Tool %s returned successfully", tool_name)
-                final_text.append(f"[Calling tool {tool_name} with args {tool_args}]")
-
-                assistant_message_content.append(content)
-                self.conversation_history.append(
-                    {  # ← append to shared history
-                        "role": "assistant",
-                        "content": assistant_message_content,
-                    }
-                )
-                self.conversation_history.append(
-                    {  # ← append to shared history
-                        "role": "user",
-                        "content": [
-                            {
-                                "type": "tool_result",
-                                "tool_use_id": content.id,
-                                "content": result.content,
-                            }
-                        ],
-                    }
-                )
-
-                response = self.anthropic.messages.create(
-                    model="claude-sonnet-4-20250514",
-                    max_tokens=1000,
-                    messages=self.conversation_history,  # ← use shared history
-                    tools=available_tools,
-                )
-
-                final_text.append(response.content[0].text)
-
-        # Save the final assistant response to history
-        self.conversation_history.append(
-            {"role": "assistant", "content": response.content[0].text}
-        )
+        self.conversation_history.append({"role": "assistant", "content": response.content})
 
         return "\n".join(final_text)
 

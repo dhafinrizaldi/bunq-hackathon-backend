@@ -177,72 +177,31 @@ Request Inquiry Details:
 """
 
 
-@mcp.tool()
-async def send_payment_by_name(
-    recipient_name: str, amount: str, description: str = ""
-) -> str:
-    """Send payment to a contact by their name from payment history
-
-    Args:
-        recipient_name: Name of recipient (e.g., "Sugar Daddy")
-        amount: Amount in EUR (e.g., "10.00")
-        description: Optional description
-    """
-    logger.info(
-        "Tool called: send_payment_by_name recipient=%s amount=%s",
-        recipient_name,
-        amount,
-    )
-    # Get payments to find recipient
-    url = f"{BUNQ_API_BASE}/payments"
-    payments = await make_bunq_request(url)
-
-    if not payments:
-        return "No payment history found"
-
-    # Find recipient's IBAN
-    recipient_iban = None
-    for payment in payments:
-        counterparty = payment.get("_counterparty_alias", {}).get(
-            "label_monetary_account", {}
-        )
-        name = counterparty.get("_display_name", "")
-        if recipient_name.lower() in name.lower():
-            recipient_iban = counterparty.get("_iban")
-            break
-
-    if not recipient_iban:
-        logger.warning("Recipient '%s' not found in payment history", recipient_name)
-        return f"Recipient '{recipient_name}' not found in history"
-
-    # Now create payment
-    return await create_payment(
-        amount, description or f"Payment to {recipient_name}", recipient_iban, "IBAN"
-    )
-
-
-def get_user_alias(recipient_name: str, payments):
-    recipient_iban = None
-    for payment in payments:
-        counterparty = payment.get("_counterparty_alias", {}).get(
-            "label_monetary_account", {}
-        )
-        name = counterparty.get("_display_name", "")
-        if recipient_name.lower() in name.lower():
-            recipient_iban = counterparty.get("_iban")
-            break
-
-    return recipient_iban
+async def _resolve_contact(name: str) -> str | None:
+    """Look up a contact IBAN by nickname from the Django contacts API."""
+    async with httpx.AsyncClient() as client:
+        try:
+            resp = await client.get(
+                "http://localhost:8080/api/contacts/internal/", timeout=5.0
+            )
+            if resp.is_error:
+                return None
+            for contact in resp.json():
+                if contact.get("nickname", "").lower() == name.lower():
+                    return contact.get("iban")
+        except Exception as e:
+            logger.error("Could not fetch contacts from Django: %s", e)
+    return None
 
 
 @mcp.tool()
 async def send_request_inq_by_name(
     recipient_name: str, amount: str, description: str = ""
 ) -> str:
-    """Send request inquary to a contact by their name from payment history
+    """Send a Bunq payment request to a contact by their nickname.
 
     Args:
-        recipient_name: Name of recipient (e.g., "Sugar Daddy")
+        recipient_name: Contact nickname (e.g. "sister", "mom"). Case-insensitive.
         amount: Amount in EUR (e.g., "10.00")
         description: Optional description
     """
@@ -251,24 +210,13 @@ async def send_request_inq_by_name(
         recipient_name,
         amount,
     )
-    # Get payments to find recipient
-    url = f"{BUNQ_API_BASE}/payments"
-    payments = await make_bunq_request(url)
-
-    if not payments:
-        return "No payment history found"
-
-    # Find recipient's IBAN
-    recipient_iban = get_user_alias(recipient_name, payments)
-
-    if not recipient_iban:
-        return f"Recipient '{recipient_name}' not found in history"
-
-    # Now create payment
+    iban = await _resolve_contact(recipient_name)
+    if not iban:
+        return f"No contact named '{recipient_name}' found. Use list_contacts to see available contacts."
     return await create_request_inquiry(
         amount,
         description or f"Payment request to {recipient_name}",
-        recipient_iban,
+        iban,
         "IBAN",
     )
 
@@ -396,10 +344,10 @@ async def split_receipt_by_names(
         - The description field in each UserSplit is sent to the recipient as the payment memo.
     """
 
-    # Get mapping of recipient IBANs
-    url = f"{BUNQ_API_BASE}/payments"
-    payments = await make_bunq_request(url)
-    recipient_ibans = {name: get_user_alias(name, payments) for name in recipient_names}
+    # Resolve IBANs from Django contacts
+    recipient_ibans = {}
+    for name in recipient_names:
+        recipient_ibans[name] = await _resolve_contact(name)
 
     # Get mapping of recipient splits for quick lookup
     recipient_splits_map = {split["name"]: split for split in recepient_splits}
@@ -609,6 +557,88 @@ async def analyze_receipt_savings(receipt_text: str) -> str:
     lines = ["Albert Heijn Price Comparison", "=" * 42]
     lines += rows
     lines += ["=" * 42, f"Total potential saving: €{total_saving:.2f}"]
+    return "\n".join(lines)
+
+
+# ---------------------------------------------------------------------------
+# Contacts — backed by Django API
+# ---------------------------------------------------------------------------
+
+DJANGO_BASE = "http://localhost:8080"
+
+
+@mcp.tool()
+async def list_contacts() -> str:
+    """List all contacts from the address book.
+
+    Contacts are managed via the Django backend. Use this to see who is
+    available before sending a payment.
+    """
+    logger.info("Tool called: list_contacts")
+    async with httpx.AsyncClient() as client:
+        try:
+            resp = await client.get(f"{DJANGO_BASE}/api/contacts/internal/", timeout=5.0)
+            contacts = resp.json() if not resp.is_error else []
+        except Exception as e:
+            return f"Could not fetch contacts: {e}"
+
+    if not contacts:
+        return "No contacts saved yet."
+    lines = [f"• {c['nickname']}: {c['display_name']} — {c['iban']}" for c in contacts]
+    return "\n".join(lines)
+
+
+@mcp.tool()
+async def send_to_contact(name: str, amount: str, description: str = "") -> str:
+    """Send a Bunq payment to a contact by their nickname.
+
+    Resolves the nickname to an IBAN via the Django address book and sends the payment.
+    Use list_contacts to see available contacts.
+
+    Args:
+        name: Contact nickname (e.g. "sister", "mom"). Case-insensitive.
+        amount: Amount in EUR (e.g. "50.00").
+        description: Optional payment description.
+    """
+    logger.info("Tool called: send_to_contact name=%s amount=%s", name, amount)
+    iban = await _resolve_contact(name)
+    if not iban:
+        return f"No contact named '{name}' found. Use list_contacts to see available contacts."
+    return await create_payment(amount, description or f"Payment to {name}", iban, "IBAN")
+
+
+@mcp.tool()
+async def get_monetary_accounts() -> str:
+    """List all Bunq monetary accounts with their names, balances, and IBANs.
+
+    Use this to find the IBAN of a savings pocket before transferring money into it.
+    Returns one line per account showing description, balance, and IBAN.
+    """
+    logger.info("Tool called: get_monetary_accounts")
+    data = await make_bunq_request(f"{BUNQ_API_BASE}/monetary-accounts/")
+    if not data:
+        return "No monetary accounts found."
+
+    lines = []
+    for acc in data:
+        # The SDK wraps accounts under a type key e.g. _MonetaryAccountBank
+        inner = (
+            acc.get("_MonetaryAccountBank")
+            or acc.get("_MonetaryAccountSavings")
+            or acc.get("_MonetaryAccountLight")
+            or acc
+        )
+        description = inner.get("_description") or inner.get("_display_name", "Account")
+        balance = inner.get("_balance") or {}
+        amount = balance.get("_value", "?")
+        currency = balance.get("_currency", "EUR")
+        aliases = inner.get("_alias") or []
+        iban = next(
+            (a.get("_value") for a in aliases if a.get("_type_") == "IBAN"),
+            "N/A",
+        )
+        lines.append(f"• {description} ({inner.get('_display_name', '')}): {amount} {currency} | IBAN: {iban}")
+
     return "\n".join(lines)
 
 
