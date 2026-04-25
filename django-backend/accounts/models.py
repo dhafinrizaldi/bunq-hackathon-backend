@@ -58,3 +58,6 @@ class CustomUser(AbstractUser):
             acc_detail = next(iter(acc.values()))
             if acc_detail.get('status') == 'ACTIVE':
                 return acc_detail
+            
+    def get_private_pem(self):
+        return self.bunq_context['installation_context']['private_key_client']

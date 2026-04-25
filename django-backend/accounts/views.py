@@ -11,7 +11,13 @@ from django.conf import settings
 
 import json
 import requests
-
+import os
+from cryptography.hazmat.primitives import hashes, serialization
+from cryptography.hazmat.primitives.asymmetric import padding, rsa
+from cryptography.hazmat.backends import default_backend
+from cryptography.hazmat.primitives.serialization import load_pem_private_key
+import base64
+import hashlib
 def create_bunq_api_key(self, user):
     url = "https://public-api.sandbox.bunq.com/v1/sandbox-user-person"
     
@@ -206,7 +212,7 @@ class PaymentViewSet(viewsets.GenericViewSet):
         user_id = user.get_bunq_id()
         session_token = user.get_session_token()
         primary_account = user.get_primary_account()
-
+        primary_pem = user.get_private_pem()
         url = f"https://public-api.sandbox.bunq.com/v1/user/{user_id}/monetary-account/{primary_account['id']}/payment"
 
         payload = {
@@ -221,6 +227,112 @@ class PaymentViewSet(viewsets.GenericViewSet):
             payload["merchant_reference"] = request.data.get("merchant_reference")
         if request.data.get("allow_bunqto") is not None:
             payload["allow_bunqto"] = request.data.get("allow_bunqto")
+
+        payload_str = json.dumps(payload, separators=(',', ':'))
+        signature = self.sign_data(payload_str, primary_pem)
+
+        print("[DEBUG] URL:", url)
+        print("[DEBUG] Payload being sent:", payload_str)
+        print("[DEBUG] Signature:", signature)
+        print("[DEBUG] Session token (first 20):", session_token[:20] if session_token else None)
+
+        response = requests.post(url, data=payload_str, headers={
+            "User-Agent": "django-app",
+            "Content-Type": "application/json",
+            "X-Bunq-Client-Authentication": session_token,
+            "X-Bunq-Client-Signature": signature,
+        })
+
+        print("[DEBUG] Response status:", response.status_code)
+        print("[DEBUG] Response body:", response.text)
+
+        if not response.ok:
+            return Response(response.json(), status=response.status_code)
+
+        return Response(response.json(), status=status.HTTP_201_CREATED)
+
+    def load_private_key(self, private_key_pem):
+        return load_pem_private_key(
+            private_key_pem.encode('utf-8'),  # converts string → bytes
+            password=None
+        )
+    def sign_data(self, data, private_key_pem):
+        """Signs the given data with the provided private key using SHA256 and PKCS#1 v1.5 padding.
+        
+        Args:
+            data (str): The data to sign (should be the JSON request body)
+            private_key_pem (str): The private key in PEM format
+        
+        Returns:
+            str: Base64 encoded signature
+        """
+        private_key = self.load_private_key(private_key_pem)
+        
+        # Ensure the data is encoded in UTF-8 exactly as it will be sent
+        encoded_data = data.encode('utf-8')
+
+        # Debug: Print exact bytes being signed
+        print("\n[DEBUG] Signing Data Bytes:", encoded_data)
+        print("[DEBUG] SHA256 Hash of Data:", hashlib.sha256(encoded_data).hexdigest())
+
+        # Generate signature using SHA256 and PKCS#1 v1.5 padding as required by Bunq
+        signature = private_key.sign(
+            encoded_data,
+            padding.PKCS1v15(),
+            hashes.SHA256()
+        )
+
+        # Encode in Base64 (as required by Bunq API)
+        encoded_signature = base64.b64encode(signature).decode('utf-8')
+
+        # Debug: Print signature
+        print("[DEBUG] Base64 Encoded Signature:", encoded_signature)
+
+        return encoded_signature
+class RequestInquiryViewSet(viewsets.GenericViewSet):
+
+    def list(self, request):
+        user = request.user
+        user_id = user.get_bunq_id()        
+        session_token = user.get_session_token()     
+        primary_account = user.get_primary_account()
+        # print('Primary account: ', primary_account) 
+        
+        url = f"https://public-api.sandbox.bunq.com/v1/user/{user_id}/monetary-account/{primary_account['id']}/request-inquiry"
+        
+        response = requests.get(url, headers={
+            "User-Agent": "django-app", 
+            "Content-Type": "application/json",
+            "X-Bunq-Client-Authentication": session_token
+            })
+        response.raise_for_status()
+        
+        data = response.json()
+       
+        return Response(data,
+                                status=status.HTTP_200_OK)
+    
+    def create(self, request):
+        print(request.data)
+        user = request.user
+        user_id = user.get_bunq_id()
+        session_token = user.get_session_token()
+        primary_account = user.get_primary_account()
+
+        url = f"https://public-api.sandbox.bunq.com/v1/user/{user_id}/monetary-account/{primary_account['id']}/request-inquiry"
+
+        payload = {
+            "amount_inquired": request.data.get("amount_inquired"),
+            "counterparty_alias": request.data.get("counterparty_alias"),
+            "description": request.data.get("description"),
+        }
+
+        if request.data.get("attachment"):
+            payload["attachment"] = request.data.get("attachment")
+        if request.data.get("merchant_reference"):
+            payload["merchant_reference"] = request.data.get("merchant_reference")
+        if request.data.get("allow_bunqme") is not None:
+            payload["allow_bunqme"] = request.data.get("allow_bunqme")
 
         response = requests.post(url, json=payload, headers={
             "User-Agent": "django-app",
