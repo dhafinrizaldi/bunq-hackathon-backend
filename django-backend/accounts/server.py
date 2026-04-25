@@ -89,18 +89,22 @@ Payment Details:
 @mcp.tool()
 async def create_payment(
     amount: str,
+    currency: str,
     description: str,
     counterparty_alias: str,
     counterparty_type: str = "EMAIL",
+    counterparty_name: str = "",
     auth_token: dict[str, str] = "",
 ) -> str:
     """Create a bunq payment
 
     Args:
         amount: Payment amount (e.g., "10.00")
+        currency: Currency of the payment (e.g., "EUR")
         description: Payment description
         counterparty_alias: Recipient email, IBAN, or phone number
         counterparty_type: Type of alias - "EMAIL", "IBAN", or "PHONE_NUMBER" (default: EMAIL)
+        counterparty_name: Optional name of the recipient (used for better contact resolution in Django)
     """
     logger.info(
         "Tool called: create_payment amount=%s counterparty=%s",
@@ -108,18 +112,24 @@ async def create_payment(
         counterparty_alias,
     )
     payment_data = {
-        "amount": amount,
+        "amount": {
+            "value": amount,
+            "currency": currency
+        },
         "description": description,
-        "counterparty_alias": counterparty_alias,
-        "counterparty_type": counterparty_type,
+        "counterparty_alias": {
+            "type": counterparty_type,
+            "value": counterparty_alias,
+            'name': counterparty_name
+        },
     }
 
-    url = f"{BUNQ_API_BASE}/payment"
+    url = f"{BUNQ_API_BASE}/payment/"
     data = await make_bunq_request(url, method="post", payload=payment_data, auth_token=auth_token)
 
     if not data:
         return "Payment creation failed"
-
+    return data.get("Response", [{}])[0].get("Id", {}).get("id", "Unknown")
     return format_payment(data)
 
 
@@ -381,7 +391,8 @@ async def split_receipt_by_names(
     # Resolve IBANs from Django contacts
     recipient_ibans = {}
     for name in recipient_names:
-        recipient_ibans[name] = await _resolve_contact(name, auth_token)
+        iban, display_name = await _resolve_contact(name, auth_token)
+        recipient_ibans[name] = iban
 
     # Get mapping of recipient splits for quick lookup
     recipient_splits_map = {split["name"]: split for split in recepient_splits}
@@ -415,7 +426,8 @@ async def split_receipt_by_names(
         amount = req["amount"]
         desc = req["description"]
         iban = req["iban"]
-        resp = await create_payment(str(amount), desc, iban, "IBAN", auth_token)
+
+        resp = await create_payment(str(amount), 'EUR', desc, iban, "IBAN", auth_token)
         responses.append(resp)
 
     return "\n".join(responses)
@@ -624,22 +636,24 @@ async def list_contacts(auth_token: str = "") -> str:
 
 
 @mcp.tool()
-async def send_to_contact(name: str, amount: str, description: str = "", auth_token: str = "") -> str:
-    """Send a Bunq payment to a contact by their nickname.
+async def send_by_name(name: str, amount: str, currency: str = "EUR", description: str = "", auth_token: dict[str,str] = {}) -> str:
+    """Send a Bunq payment to a contact by their nickname OR from past payments.
 
     Resolves the nickname to an IBAN via the Django address book and sends the payment.
     Use list_contacts to see available contacts.
 
     Args:
-        name: Contact nickname (e.g. "sister", "mom"). Case-insensitive.
+        name: Contact nickname or display name (e.g. "sister", "mom"). Case-insensitive.
         amount: Amount in EUR (e.g. "50.00").
+        currency: Currency of the payment (default is "EUR").
         description: Optional payment description.
     """
-    logger.info("Tool called: send_to_contact name=%s amount=%s", name, amount)
-    iban = await _resolve_contact(name, auth_token)
+    logger.info("Tool called: send_by_name name=%s amount=%s", name, amount)
+    iban, display_name = await _resolve_contact(name, auth_token)
+    print(f"Resolved contact '{name}' to IBAN: {iban} with display name: {display_name}")
     if not iban:
         return f"No contact named '{name}' found. Use list_contacts to see available contacts."
-    return await create_payment(amount, description or f"Payment to {name}", iban, "IBAN", auth_token)
+    return await create_payment(amount, currency, description or f"Payment to {display_name}", iban, "IBAN", display_name, auth_token)
 
 
 @mcp.tool()
