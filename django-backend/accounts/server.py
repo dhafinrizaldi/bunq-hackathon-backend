@@ -166,7 +166,8 @@ async def create_request_inquiry(
 
     if not data:
         return "Payment creation failed"
-
+    print('Request inquiry response: ', data)
+    return data.get("Response", [{}])[0].get("Id", {}).get("id", "Unknown")
     return format_request_inquiry(data)
 
 
@@ -246,12 +247,13 @@ async def send_request_inq_by_name(
 
 def get_user_alias(recipient_name: str, payments):
     for payment in payments:
+        print(payment)
         counterparty = payment.get("Payment", {}).get("counterparty_alias", {})
         name = counterparty.get("display_name", "")
         if recipient_name.lower() in name.lower():
             print('Found matching payment for recipient: ', counterparty)
-            return counterparty.get("iban"), counterparty.get("name")
-    return None
+            return counterparty.get("iban"), name
+    return None, None
 @mcp.tool()
 async def get_user_detail(auth_token: dict[str, str] = "") -> str:
     """Get user details like name, etc"""
