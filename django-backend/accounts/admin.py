@@ -10,7 +10,7 @@ from django.contrib import messages
 
 @admin.register(CustomUser)
 class UserAdmin(UserAdmin):
-    list_display = ('id', 'username', 'email', 'first_name', 'last_name',  'is_staff', )
+    list_display = ('id', 'username', 'email', 'bunq_api_key', 'bunq_context', 'first_name', 'last_name',  'is_staff', )
 
      # Fields to include in the admin add/edit forms
     fieldsets = (
