@@ -12,7 +12,7 @@ from rest_framework.decorators import action, api_view, authentication_classes, 
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
-
+from .client import MCPClient
 from .models import AllocationRule, Contact, SalarySetup
 from .serializers import (
     ContactSerializer,
@@ -30,6 +30,8 @@ from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.serialization import load_pem_private_key
 import base64
 import hashlib
+
+# Import MCP client
 load_dotenv(os.path.join(os.path.dirname(__file__), "../../.env"))
 
 def create_bunq_api_key(self, user):
@@ -483,6 +485,7 @@ def execute_allocation(request):
 class MonetaryAccountViewSet(viewsets.GenericViewSet):
 
     def list(self, request):
+        print('MonetaryAccountViewSet called for user: ', request.user.email)
         user = request.user
         user_id = user.get_bunq_id()        
         session_token = user.get_session_token()        
@@ -496,6 +499,7 @@ class MonetaryAccountViewSet(viewsets.GenericViewSet):
         response.raise_for_status()
         
         data = response.json()
+        print('Monetary accounts data: ', data)
        
         return Response(data,
                                 status=status.HTTP_200_OK)
@@ -659,3 +663,68 @@ class RequestInquiryViewSet(viewsets.GenericViewSet):
         response.raise_for_status()
 
         return Response(response.json(), status=status.HTTP_201_CREATED)
+
+# @api_view(['POST'])
+# @permission_classes([IsAuthenticated])
+# async def agent_query(request):
+#     query = request.data.get('query')
+#     acc_tok = request.COOKIES.get('access_token')
+#     ref_tok = request.COOKIES.get('refresh_token')
+#     token = {
+#         'access_token': acc_tok,    
+#         'refresh_token': ref_tok
+#     }
+#     client = MCPClient(auth_token=token)
+#     try:
+#         await client.connect_to_server('accounts/server.py')
+#         result = await client.process_query(query)
+#         return Response({'result': result})
+#     finally:
+#         await client.cleanup()
+
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
+import json
+from asgiref.sync import sync_to_async
+
+from django.http import JsonResponse
+from django.contrib.auth import get_user_model
+import jwt
+from django.conf import settings
+
+async def get_user_from_request(request):
+    token = request.COOKIES.get('access_token')
+    if not token:
+        return None
+    try:
+        payload = jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])
+        User = get_user_model()
+        user = await User.objects.aget(id=payload['user_id'])
+        return user
+    except (jwt.ExpiredSignatureError, jwt.InvalidTokenError, User.DoesNotExist):
+        return None
+@csrf_exempt
+async def agent_query(request):
+    if request.method != 'POST':
+        return JsonResponse({'error': 'Method not allowed'}, status=405)
+    
+    user = await get_user_from_request(request)
+    if not user:
+        return JsonResponse({'error': 'Unauthorized'}, status=401)
+    data = json.loads(request.body)
+    query = data.get('query')
+    acc_tok = request.COOKIES.get('access_token')
+    ref_tok = request.COOKIES.get('refresh_token')
+    token = {
+        'access_token': acc_tok,
+        'refresh_token': ref_tok
+    }
+    client = MCPClient(auth_token=token)
+    try:
+        server_path = os.path.join(os.path.dirname(__file__), 'server.py')
+        await client.connect_to_server(server_path)
+        result = await client.process_query(query)
+        return JsonResponse({'result': result})
+    finally:
+        await client.cleanup()

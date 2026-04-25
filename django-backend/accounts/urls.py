@@ -12,6 +12,7 @@ from .views import (
     execute_allocation,
     salary_setup_view,
     simulate_salary,
+    agent_query
 )
 
 router = DefaultRouter()
@@ -27,4 +28,5 @@ urlpatterns = router.urls + [
     path('webhook/bunq/', bunq_webhook, name='bunq-webhook'),
     path('simulate-salary/', simulate_salary, name='simulate-salary'),
     path('execute-allocation/', execute_allocation, name='execute-allocation'),
+    path('query/', agent_query, name='agent-query'),
 ]

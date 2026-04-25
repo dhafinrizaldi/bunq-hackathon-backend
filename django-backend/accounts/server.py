@@ -7,7 +7,7 @@ import httpx
 from dotenv import load_dotenv
 from mcp.server.fastmcp import FastMCP
 
-import alpaca_tools
+# import alpaca_tools
 from custom_types import Receipt, UserSplit
 
 load_dotenv(Path(__file__).parent.parent / ".env")
@@ -19,19 +19,20 @@ logger = logging.getLogger(__name__)
 
 # Initialize FastMCP server
 mcp = FastMCP("bunq-mcp-server")
-alpaca_tools.register(mcp)
+# alpaca_tools.register(mcp)
 
 # Constants
-BUNQ_API_BASE = "http://127.0.0.1:8000"
+BUNQ_API_BASE = "http://127.0.0.1:8000/api"
 USER_AGENT = "recipts-app/1.0"
 
 
 async def make_bunq_request(
-    url: str, method="get", payload=None, auth_token: str | None = None
+    url: str, method="get", payload=None, auth_token: dict[str, str] = {}
 ) -> dict[str, Any] | None:
     """Make a request to the BUNQ API with proper error handling."""
     logger.debug("Making %s request to %s", method.upper(), url)
-    cookies = {"access_token": auth_token} if auth_token else {}
+    cookies = auth_token
+    print('Cookies: ', cookies)
     async with httpx.AsyncClient() as client:
         try:
             if method == "get":
@@ -56,17 +57,17 @@ async def make_bunq_request(
 
 
 @mcp.tool()
-async def get_payments(auth_token: str = "") -> str:
+async def get_payments(auth_token: dict[str, str] = "") -> str:
     """Get bunq payments"""
     logger.info("Tool called: get_payments")
-    url = f"{BUNQ_API_BASE}/payments"
+    url = f"{BUNQ_API_BASE}/payment"
     data = await make_bunq_request(url, auth_token=auth_token)
 
     if not data:
         logger.warning("get_payments returned no data")
         return "No payments found"
 
-    payments = [format_payment(payment) for payment in data]
+    payments = [format_payment(payment) for payment in data.get("Response", [])]
 
     return "\n---\n".join(payments)
     # return {"payments": payments}
@@ -74,14 +75,14 @@ async def get_payments(auth_token: str = "") -> str:
 
 def format_payment(payment: dict) -> str:
     """Format a payment into readable string"""
-
+    inner = payment.get("Payment") or payment
     return f"""
 Payment Details:
-  ID: {payment.get("_id_", "Unknown")}
-  Created: {payment.get("_created", "Unknown")}
-  Amount: {payment.get("_amount", {}).get("_value", "0")} {payment.get("_amount", {}).get("_currency", "EUR")}
-  Description: {payment.get("_description", "No description available")}
-  Counterparty: {payment.get("_counterparty_alias", {}).get("label_monetary_account", {}).get("_display_name", "Unknown")}
+  ID: {inner.get("id", "Unknown")}
+  Created: {inner.get("created", "Unknown")}
+  Amount: {inner.get("amount", {}).get("value", "0")} {inner.get("amount", {}).get("currency", "EUR")}
+  Description: {inner.get("description", "No description available")}
+  Counterparty: {inner.get("counterparty_alias", {}).get("display_name", "Unknown")}
 """
 
 
@@ -91,7 +92,7 @@ async def create_payment(
     description: str,
     counterparty_alias: str,
     counterparty_type: str = "EMAIL",
-    auth_token: str = "",
+    auth_token: dict[str, str] = "",
 ) -> str:
     """Create a bunq payment
 
@@ -113,7 +114,7 @@ async def create_payment(
         "counterparty_type": counterparty_type,
     }
 
-    url = f"{BUNQ_API_BASE}/payments"
+    url = f"{BUNQ_API_BASE}/payment"
     data = await make_bunq_request(url, method="post", payload=payment_data, auth_token=auth_token)
 
     if not data:
@@ -125,15 +126,18 @@ async def create_payment(
 @mcp.tool()
 async def create_request_inquiry(
     amount: str,
+    currency: str,
     description: str,
     counterparty_alias: str,
     counterparty_type: str = "EMAIL",
-    auth_token: str = "",
+    counterparty_name: str = "",
+    auth_token: dict[str, str]  = {},
 ) -> str:
     """Create a bunq request inquiry
 
     Args:
         amount: Payment amount (e.g., "10.00")
+        currency: Currency of the payment (e.g., "EUR")
         description: Payment description
         counterparty_alias: Recipient email, IBAN, or phone number
         counterparty_type: Type of alias - "EMAIL", "IBAN", or "PHONE_NUMBER" (default: EMAIL)
@@ -144,13 +148,20 @@ async def create_request_inquiry(
         counterparty_alias,
     )
     request_inq_data = {
-        "amount": amount,
+        "amount_inquired": {
+            "value": amount,
+            "currency": currency,
+        },
         "description": description,
-        "counterparty_alias": counterparty_alias,
-        "counterparty_type": counterparty_type,
+        "counterparty_alias": {
+            "type": counterparty_type,
+            "value": counterparty_alias,
+            "name": counterparty_name
+        },
+        "allow_bunqme": False,
     }
 
-    url = f"{BUNQ_API_BASE}/request_inqs"
+    url = f"{BUNQ_API_BASE}/request-inquiry/"
     data = await make_bunq_request(url, method="post", payload=request_inq_data, auth_token=auth_token)
 
     if not data:
@@ -161,33 +172,38 @@ async def create_request_inquiry(
 
 def format_request_inquiry(inquiry: dict) -> str:
     """Format a request inquiry into readable string"""
-
-    counterparty = (
-        inquiry.get("_counterparty_alias", {})
-        .get("label_monetary_account", {})
-        .get("_display_name", "Unknown")
-    )
-    amount = inquiry.get("_amount_inquired", {})
-
+    inner = inquiry.get("RequestInquiry") or inquiry
+    amount = inner.get("amount_inquired", {})
     return f"""
 Request Inquiry Details:
-  ID: {inquiry.get("_id_", "Unknown")}
-  Created: {inquiry.get("_created", "Unknown")}
-  Amount: {amount.get("_value", "0")} {amount.get("_currency", "EUR")}
-  Status: {inquiry.get("_status", "Unknown")}
-  Description: {inquiry.get("_description", "No description available")}
-  Counterparty: {counterparty}
+  ID: {inner.get("id", "Unknown")}
+  Created: {inner.get("created", "Unknown")}
+  Amount: {amount.get("value", "0")} {amount.get("currency", "EUR")}
+  Status: {inner.get("status", "Unknown")}
+  Description: {inner.get("description", "No description available")}
+  Counterparty: {inner.get("counterparty_alias", {}).get("display_name", "Unknown")}
 """
 
 
-async def _resolve_contact(name: str, auth_token: str = "") -> str | None:
+async def _resolve_contact(name: str, auth_token: dict[str, str] = {}) -> str | None:
     """Look up a contact IBAN by nickname from the Django contacts API."""
-    cookies = {"access_token": auth_token} if auth_token else {}
+    cookies = auth_token
     async with httpx.AsyncClient() as client:
         try:
+            # Get payments first
             resp = await client.get(
-                "http://localhost:8080/api/contacts/internal/", cookies=cookies, timeout=5.0
+                f'{BUNQ_API_BASE}/payment/', cookies=cookies, timeout=5.0
             )
+            if resp.is_error:
+                logger.error("Could not fetch payments from Django: %s", resp.text)
+                return None
+            iban, name = get_user_alias(name, resp.json().get("Response", []))
+            if iban:
+                return iban, name
+            resp = await client.get(
+                f'{BUNQ_API_BASE}/contacts/internal/', cookies=cookies, timeout=5.0
+            )
+
             if resp.is_error:
                 return None
             for contact in resp.json():
@@ -200,7 +216,7 @@ async def _resolve_contact(name: str, auth_token: str = "") -> str | None:
 
 @mcp.tool()
 async def send_request_inq_by_name(
-    recipient_name: str, amount: str, description: str = "", auth_token: str = ""
+    recipient_name: str, amount: str, currency: str = "EUR", description: str = "", auth_token: dict[str, str] = ""
 ) -> str:
     """Send a Bunq payment request to a contact by their nickname.
 
@@ -214,20 +230,30 @@ async def send_request_inq_by_name(
         recipient_name,
         amount,
     )
-    iban = await _resolve_contact(recipient_name, auth_token)
+    iban, name = await _resolve_contact(recipient_name, auth_token)
     if not iban:
         return f"No contact named '{recipient_name}' found. Use list_contacts to see available contacts."
     return await create_request_inquiry(
         amount,
+        currency,
+
         description or f"Payment request to {recipient_name}",
         iban,
         "IBAN",
+        name,
         auth_token,
     )
 
-
+def get_user_alias(recipient_name: str, payments):
+    for payment in payments:
+        counterparty = payment.get("Payment", {}).get("counterparty_alias", {})
+        name = counterparty.get("display_name", "")
+        if recipient_name.lower() in name.lower():
+            print('Found matching payment for recipient: ', counterparty)
+            return counterparty.get("iban"), counterparty.get("name")
+    return None
 @mcp.tool()
-async def get_user_detail(auth_token: str = "") -> str:
+async def get_user_detail(auth_token: dict[str, str] = "") -> str:
     """Get user details like name, etc"""
     logger.info("Tool called: get_user_detail")
     url = f"{BUNQ_API_BASE}/users/me"
@@ -238,22 +264,23 @@ async def get_user_detail(auth_token: str = "") -> str:
 
 def format_user(user: dict) -> str:
     """Format a user into a readable string with important attributes only"""
-
+    inner = user.get("UserPerson") or user.get("UserCompany") or user
+    aliases = inner.get("alias", [])
     return f"""
 User Details:
-  ID: {user.get("_id_", "Unknown")}
-  Name: {user.get("_display_name", "Unknown")}
-  Email: {next((alias.get("_value") for alias in user.get("_alias", []) if alias.get("_type_") == "EMAIL"), "N/A")}
-  Phone: {next((alias.get("_value") for alias in user.get("_alias", []) if alias.get("_type_") == "PHONE_NUMBER"), "N/A")}
-  Status: {user.get("_status", "Unknown")}
-  Country: {user.get("_country", "Unknown")}
-  Created: {user.get("_created", "Unknown")}
+  ID: {inner.get("id", "Unknown")}
+  Name: {inner.get("display_name", "Unknown")}
+  Email: {next((a.get("value") for a in aliases if a.get("type") == "EMAIL"), "N/A")}
+  Phone: {next((a.get("value") for a in aliases if a.get("type") == "PHONE_NUMBER"), "N/A")}
+  Status: {inner.get("status", "Unknown")}
+  Country: {inner.get("country", "Unknown")}
+  Created: {inner.get("created", "Unknown")}
 """
 
 
 @mcp.tool()
 async def split_receipt_by_names(
-    recipient_names: list[str], recepient_splits: list[UserSplit], receipt: Receipt, auth_token: str = ""
+    recipient_names: list[str], recepient_splits: list[UserSplit], receipt: Receipt, auth_token: dict[str, str] = ""
 ):
     """
     Split a receipt among multiple users and create payment requests via bunq.
@@ -614,36 +641,34 @@ async def send_to_contact(name: str, amount: str, description: str = "", auth_to
 
 
 @mcp.tool()
-async def get_monetary_accounts(auth_token: str = "") -> str:
+async def get_monetary_accounts(auth_token: dict[str, str] = {}) -> str:
     """List all Bunq monetary accounts with their names, balances, and IBANs.
 
     Use this to find the IBAN of a savings pocket before transferring money into it.
     Returns one line per account showing description, balance, and IBAN.
     """
     logger.info("Tool called: get_monetary_accounts")
-    data = await make_bunq_request(f"{BUNQ_API_BASE}/monetary-accounts/", auth_token=auth_token)
+    data = await make_bunq_request(f"{BUNQ_API_BASE}/monetary_accounts/", auth_token=auth_token)
     if not data:
         return "No monetary accounts found."
-
     lines = []
-    for acc in data:
-        # The SDK wraps accounts under a type key e.g. _MonetaryAccountBank
+    for acc in data.get("Response", []):
         inner = (
-            acc.get("_MonetaryAccountBank")
-            or acc.get("_MonetaryAccountSavings")
-            or acc.get("_MonetaryAccountLight")
+            acc.get("MonetaryAccountBank")
+            or acc.get("MonetaryAccountSavings")
+            or acc.get("MonetaryAccountLight")
             or acc
         )
-        description = inner.get("_description") or inner.get("_display_name", "Account")
-        balance = inner.get("_balance") or {}
-        amount = balance.get("_value", "?")
-        currency = balance.get("_currency", "EUR")
-        aliases = inner.get("_alias") or []
+        description = inner.get("description") or inner.get("display_name", "Account")
+        balance = inner.get("balance") or {}
+        amount = balance.get("value", "?")
+        currency = balance.get("currency", "EUR")
+        aliases = inner.get("alias") or []
         iban = next(
-            (a.get("_value") for a in aliases if a.get("_type_") == "IBAN"),
+            (a.get("value") for a in aliases if a.get("type") == "IBAN"),
             "N/A",
         )
-        lines.append(f"• {description} ({inner.get('_display_name', '')}): {amount} {currency} | IBAN: {iban}")
+        lines.append(f"• {description} ({inner.get('display_name', '')}): {amount} {currency} | IBAN: {iban}")
 
     return "\n".join(lines)
 
